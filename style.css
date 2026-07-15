@@ -22,6 +22,54 @@ body {
 
 a { color: inherit; }
 
+/* ---------- Nav ---------- */
+
+.topnav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: rgba(19, 15, 40, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--text);
+}
+
+.nav-emoji { font-size: 1.15rem; }
+
+.nav-search {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--text);
+  background: var(--surface, var(--ground));
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.5rem 0.85rem;
+  width: 200px;
+  max-width: 45vw;
+}
+
+.nav-search::placeholder { color: var(--muted); }
+
+.nav-search:focus {
+  outline: none;
+  border-color: var(--orange);
+}
+
 /* ---------- Hero ---------- */
 
 .hero {
