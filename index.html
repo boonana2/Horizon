@@ -13,29 +13,32 @@
 
   <header class="hero">
     <div class="glow" aria-hidden="true"></div>
+
+    <svg class="sun-art" viewBox="0 0 400 300" aria-hidden="true">
+      <defs>
+        <filter id="soft-glow" x="-60%" y="-60%" width="220%" height="220%">
+          <feGaussianBlur stdDeviation="7" result="blur"/>
+          <feMerge>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+        <clipPath id="stripes">
+          <rect x="0" y="0" width="400" height="42"/>
+          <rect x="0" y="58" width="400" height="34"/>
+          <rect x="0" y="106" width="400" height="28"/>
+          <rect x="0" y="148" width="400" height="24"/>
+          <rect x="0" y="186" width="400" height="20"/>
+          <rect x="0" y="220" width="400" height="17"/>
+          <rect x="0" y="251" width="400" height="14"/>
+          <rect x="0" y="279" width="400" height="21"/>
+        </clipPath>
+      </defs>
+      <circle cx="200" cy="150" r="170" fill="none" stroke="#FF7A33" stroke-width="1" opacity="0.3" filter="url(#soft-glow)"/>
+      <circle cx="200" cy="150" r="150" fill="#FF7A33" clip-path="url(#stripes)" filter="url(#soft-glow)"/>
+    </svg>
+
     <div class="hero-inner">
-      <svg class="sun-art" viewBox="0 0 300 180" aria-hidden="true">
-        <defs>
-          <filter id="soft-glow" x="-60%" y="-60%" width="220%" height="220%">
-            <feGaussianBlur stdDeviation="5" result="blur"/>
-            <feMerge>
-              <feMergeNode in="blur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-          <clipPath id="stripes">
-            <rect x="0" y="0" width="300" height="22"/>
-            <rect x="0" y="30" width="300" height="17"/>
-            <rect x="0" y="55" width="300" height="13"/>
-            <rect x="0" y="76" width="300" height="10"/>
-            <rect x="0" y="93" width="300" height="8"/>
-            <rect x="0" y="107" width="300" height="6"/>
-            <rect x="0" y="118" width="300" height="5"/>
-          </clipPath>
-        </defs>
-        <circle cx="150" cy="88" r="82" fill="none" stroke="#FF7A33" stroke-width="1" opacity="0.35" filter="url(#soft-glow)"/>
-        <circle cx="150" cy="88" r="66" fill="#FF7A33" clip-path="url(#stripes)" filter="url(#soft-glow)"/>
-      </svg>
       <h1 class="wordmark">Horizon</h1>
       <p class="subtitle">Small games, built one at a time.</p>
     </div>
