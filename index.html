@@ -14,7 +14,7 @@
   <header class="hero">
     <div class="glow" aria-hidden="true"></div>
 
-    <svg class="sun-art" viewBox="0 0 400 300" aria-hidden="true">
+    <svg class="sun-art" viewBox="0 0 400 180" aria-hidden="true">
       <defs>
         <filter id="soft-glow" x="-60%" y="-60%" width="220%" height="220%">
           <feGaussianBlur stdDeviation="7" result="blur"/>
@@ -24,25 +24,34 @@
           </feMerge>
         </filter>
         <clipPath id="stripes">
-          <rect x="0" y="0" width="400" height="42"/>
-          <rect x="0" y="58" width="400" height="34"/>
-          <rect x="0" y="106" width="400" height="28"/>
-          <rect x="0" y="148" width="400" height="24"/>
-          <rect x="0" y="186" width="400" height="20"/>
-          <rect x="0" y="220" width="400" height="17"/>
-          <rect x="0" y="251" width="400" height="14"/>
-          <rect x="0" y="279" width="400" height="21"/>
+          <rect x="0" y="30" width="400" height="42"/>
+          <rect x="0" y="88" width="400" height="34"/>
+          <rect x="0" y="136" width="400" height="28"/>
+          <rect x="0" y="172" width="400" height="8"/>
         </clipPath>
       </defs>
-      <circle cx="200" cy="150" r="170" fill="none" stroke="#FF7A33" stroke-width="1" opacity="0.3" filter="url(#soft-glow)"/>
-      <circle cx="200" cy="150" r="150" fill="#FF7A33" clip-path="url(#stripes)" filter="url(#soft-glow)"/>
+      <path d="M30,180 A170,170 0 0 1 370,180" fill="none" stroke="#FF7A33" stroke-width="1" opacity="0.3" filter="url(#soft-glow)"/>
+      <path d="M50,180 A150,150 0 0 1 350,180 Z" fill="#FF7A33" clip-path="url(#stripes)" filter="url(#soft-glow)"/>
     </svg>
 
     <div class="hero-inner">
       <h1 class="wordmark">Horizon</h1>
       <p class="subtitle">Small games, built one at a time.</p>
     </div>
-    <div class="divider" aria-hidden="true"></div>
+
+    <svg class="wave-divider" viewBox="0 0 1200 24" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <filter id="wave-glow" x="-10%" y="-300%" width="120%" height="700%">
+          <feGaussianBlur stdDeviation="2.5" result="blur"/>
+          <feMerge>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+      <path d="M0,12 C100,3 200,21 300,12 C400,3 500,21 600,12 C700,3 800,21 900,12 C1000,3 1100,21 1200,12"
+            fill="none" stroke="#FF7A33" stroke-width="1.5" opacity="0.85" filter="url(#wave-glow)"/>
+    </svg>
   </header>
 
   <main>
