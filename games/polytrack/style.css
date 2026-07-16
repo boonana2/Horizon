@@ -148,6 +148,7 @@ main {
   text-align: center;
   padding: 1.5rem;
   overflow-y: auto;
+  z-index: 10;
 }
 .overlay.hidden { display: none; }
 .overlay h1 {
