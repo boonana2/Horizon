@@ -57,6 +57,16 @@ function resetFighters() {
 document.addEventListener("keydown", e => { keys[e.key] = true; });
 document.addEventListener("keyup", e => { keys[e.key] = false; });
 
+// Preview tabs: Gallery / Description / Controls
+document.querySelectorAll(".tab-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+    document.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
+    btn.classList.add("active");
+    document.querySelector(`.tab-panel[data-panel="${btn.dataset.tab}"]`).classList.add("active");
+  });
+});
+
 // Preview screen -> mode select menu
 document.getElementById("start-play").addEventListener("click", () => {
   document.getElementById("preview").classList.add("hidden");
