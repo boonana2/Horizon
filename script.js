@@ -5,7 +5,7 @@
 // as a locked tile instead of a broken link.
 // ---------------------------------------------------------
 const games = [
-  { title: "Skyclash", slug: "smash", blurb: "Local platform fighter — 2P or vs CPU.", ready: true },
+  { title: "Summit Smash", slug: "smash", blurb: "A fast-paced multiplayer platform fighter inspired by Super Smash Bros.", ready: true },
   { title: "Untitled Game", slug: "game-2", blurb: "Not started yet.", ready: false },
   { title: "Untitled Game", slug: "game-3", blurb: "Not started yet.", ready: false },
 ];
