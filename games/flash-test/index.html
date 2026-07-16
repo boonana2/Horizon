@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Horizon: Flash Test</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+<style>
+  :root {
+    --sky: #1B1436;
+    --sky-deep: #130F28;
+    --orange: #FF7A33;
+    --text: #F3EDF7;
+    --muted: #9089A3;
+    --line: #382C4A;
+    --font-display: "Lexend", sans-serif;
+    --font-body: "Inter", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    background: var(--sky-deep);
+    color: var(--text);
+    font-family: var(--font-body);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  .topnav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--line);
+    background: var(--sky-deep);
+  }
+  .nav-brand {
+    color: var(--text);
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-weight: 600;
+  }
+  .nav-right { display: flex; align-items: center; gap: 0.9rem; }
+  .nav-title { color: var(--muted); font-family: var(--font-display); font-size: 0.9rem; }
+  .exit-btn {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.9rem;
+    line-height: 1;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+  .exit-btn:hover { background: rgba(255, 122, 51, 0.15); border-color: var(--orange); }
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem 1rem;
+  }
+  .flash-frame {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  p.note { color: var(--muted); font-size: 0.85rem; max-width: 46ch; text-align: center; }
+</style>
+</head>
+<body>
+  <nav class="topnav">
+    <a href="../../index.html" class="nav-brand">🌅 Horizon</a>
+    <div class="nav-right">
+      <span class="nav-title">Flash Test</span>
+      <a href="../../index.html" class="exit-btn" aria-label="Exit to Horizon">✕</a>
+    </div>
+  </nav>
+  <main>
+    <p class="note">Running the uploaded .swf through Ruffle (a Flash emulator) to check compatibility.</p>
+    <div class="flash-frame">
+      <embed src="game.swf" width="900" height="600" type="application/x-shockwave-flash">
+    </div>
+  </main>
+</body>
+</html>
