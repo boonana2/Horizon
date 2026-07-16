@@ -5,8 +5,8 @@
 // as a locked tile instead of a broken link.
 // ---------------------------------------------------------
 const games = [
-  { title: "Summit Smash", slug: "smash", blurb: "A fast-paced multiplayer platform fighter inspired by Super Smash Bros.", ready: true },
-  { title: "Flash Test", slug: "flash-test", blurb: "Compatibility test: running an uploaded .swf through the Ruffle emulator.", ready: true },
+  { title: "old summit", slug: "smash", blurb: "A fast-paced multiplayer platform fighter inspired by Super Smash Bros.", ready: true },
+  { title: "Summit Smash", slug: "flash-test", blurb: "A fast-paced multiplayer platform fighter inspired by Super Smash Bros.", ready: true },
   { title: "Bomberman", slug: "bomberman", blurb: "A fast-paced multiplayer action game where players place bombs to be the last one standing.", ready: false },
   { title: "Untitled Game", slug: "game-3", blurb: "Not started yet.", ready: false },
 ];
