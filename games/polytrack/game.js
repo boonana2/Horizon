@@ -8,23 +8,9 @@ document.querySelectorAll(".tab-btn").forEach(btn => {
   });
 });
 
-// Preview screen -> Launch Poly Track
+// Play Button: Open the huge local polytrack.html in a clean, unrestricted browser window
 document.getElementById("start-play").addEventListener("click", () => {
-  // Hide the preview overlay
-  document.getElementById("preview").classList.add("hidden");
-  
-  // Create the iframe and load polytrack.html only AFTER clicking play
-  const container = document.getElementById("game-container");
-  const iframe = document.createElement("iframe");
-  iframe.src = "polytrack.html";
-  iframe.allowFullscreen = true;
-  iframe.title = "Poly Track";
-  
-  // Append the game to the screen
-  container.appendChild(iframe);
-  
-  // Focus the iframe automatically so keyboard controls work immediately
-  iframe.onload = () => {
-    iframe.focus();
-  };
+  // Opening the file in a new window bypasses the iframe's sandbox security blocks,
+  // allowing Chrome to run the local physics engine completely offline!
+  window.open("polytrack.html", "_blank");
 });
