@@ -8,17 +8,62 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <nav class="topnav">
     <a href="../../index.html" class="nav-brand">🌅 Horizon</a>
     <span class="nav-title">Summit Smash</span>
   </nav>
-
   <main>
     <div class="arena-wrap">
+      <a href="../../index.html" class="exit-btn" aria-label="Exit to Horizon">✕</a>
       <canvas id="game" width="900" height="500"></canvas>
 
-      <div id="menu" class="overlay">
+      <!-- Preview screen: shown first, before any gameplay -->
+      <div id="preview" class="overlay">
+        <div class="preview-content">
+          <h1>Summit Smash</h1>
+          <p class="preview-tagline">A fast-paced multiplayer platform fighter inspired by Super Smash Bros.</p>
+
+          <div class="preview-gallery">
+            <svg viewBox="0 0 200 130" role="img" aria-label="Two fighters facing off on the platform">
+              <rect x="20" y="96" width="160" height="14" fill="#251B23"/>
+              <rect x="20" y="96" width="160" height="3" fill="#FF7A33"/>
+              <rect x="55" y="58" width="20" height="38" fill="#FF7A33"/>
+              <rect x="63" y="66" width="6" height="6" fill="#130F28"/>
+              <rect x="125" y="58" width="20" height="38" fill="#6EA8FF"/>
+              <rect x="131" y="66" width="6" height="6" fill="#130F28"/>
+            </svg>
+            <svg viewBox="0 0 200 130" role="img" aria-label="A fighter knocked into the air after an attack">
+              <rect x="20" y="96" width="160" height="14" fill="#251B23"/>
+              <rect x="20" y="96" width="160" height="3" fill="#FF7A33"/>
+              <rect x="55" y="58" width="20" height="38" fill="#FF7A33"/>
+              <rect x="63" y="66" width="6" height="6" fill="#130F28"/>
+              <rect x="75" y="60" width="30" height="30" fill="rgba(255,255,255,0.5)"/>
+              <rect x="140" y="20" width="20" height="38" fill="#6EA8FF"/>
+              <rect x="146" y="28" width="6" height="6" fill="#130F28"/>
+            </svg>
+            <svg viewBox="0 0 200 130" role="img" aria-label="Damage percentage and stocks display">
+              <rect x="0" y="0" width="200" height="130" fill="none"/>
+              <text x="16" y="28" font-family="Lexend, sans-serif" font-weight="600" font-size="13" fill="#F3EDF7">Blaze</text>
+              <text x="16" y="50" font-family="Lexend, sans-serif" font-weight="700" font-size="20" fill="#FF7A33">64%</text>
+              <text x="16" y="68" font-family="Inter, sans-serif" font-size="11" fill="#9089A3">Stocks: 2</text>
+              <text x="184" y="28" text-anchor="end" font-family="Lexend, sans-serif" font-weight="600" font-size="13" fill="#F3EDF7">Volt</text>
+              <text x="184" y="50" text-anchor="end" font-family="Lexend, sans-serif" font-weight="700" font-size="20" fill="#FF7A33">31%</text>
+              <text x="184" y="68" text-anchor="end" font-family="Inter, sans-serif" font-size="11" fill="#9089A3">Stocks: 3</text>
+            </svg>
+          </div>
+
+          <p class="preview-desc">
+            Knock your opponent off the platform to take their stock — the more damage they've taken,
+            the farther they fly. Play locally with a friend or test yourself against the CPU.
+            First fighter to lose all three stocks loses the match.
+          </p>
+
+          <button id="start-play" class="play-btn">Play</button>
+        </div>
+      </div>
+
+      <!-- Mode select menu: shown after clicking Play on the preview -->
+      <div id="menu" class="overlay hidden">
         <h1>Summit Smash</h1>
         <p>Knock your opponent off the platform.</p>
         <div class="menu-buttons">
@@ -43,7 +88,6 @@
       </div>
     </div>
   </main>
-
   <script src="game.js"></script>
 </body>
 </html>
