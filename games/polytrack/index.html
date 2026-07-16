@@ -154,7 +154,7 @@
     <link rel="manifest" href="manifest.json" />
 
     <style>
-        /* Force top navigation fonts to stay normal (non-italic) */
+        /* Force top navigation fonts to stay normal (non-italicized) */
         .topnav, .nav-brand, .nav-title, .exit-btn {
             font-style: normal !important;
         }
@@ -251,6 +251,7 @@
       <a href="../../index.html" class="exit-btn" aria-label="Exit to Horizon">✕</a>
     </div>
   </nav>
+
   <main>
     <div class="arena-wrap">
       <canvas id="screen"></canvas>
@@ -322,6 +323,49 @@
     </div>
   </main>
 
-  <script src="game.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const startPlayBtn = document.getElementById('start-play');
+      const previewOverlay = document.getElementById('preview');
+
+      // Handle Tab Switching (Gallery, Description, Controls)
+      const tabButtons = document.querySelectorAll('.tab-btn');
+      const tabPanels = document.querySelectorAll('.tab-panel');
+
+      tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          tabButtons.forEach(btn => btn.classList.remove('active'));
+          tabPanels.forEach(panel => panel.classList.remove('active'));
+
+          button.classList.add('active');
+
+          const targetPanelId = button.getAttribute('data-tab');
+          const targetPanel = document.querySelector(`[data-panel="${targetPanelId}"]`);
+          if (targetPanel) {
+            targetPanel.classList.add('active');
+          }
+        });
+      });
+
+      // Launch Game on Play Button Click
+      if (startPlayBtn && previewOverlay) {
+        startPlayBtn.addEventListener('click', () => {
+          // Hide the preview overlay using stylesheet classes
+          previewOverlay.classList.add('hidden');
+
+          // Dynamically load the Poly Track engine files
+          const errorScreenScript = document.createElement('script');
+          errorScreenScript.src = "error_screen.bundle.js";
+          errorScreenScript.defer = true;
+          document.head.appendChild(errorScreenScript);
+
+          const mainScript = document.createElement('script');
+          mainScript.src = "main.bundle.js";
+          mainScript.defer = true;
+          document.head.appendChild(mainScript);
+        });
+      }
+    });
+  </script>
 </body>
 </html>
