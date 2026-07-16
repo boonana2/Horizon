@@ -1,11 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Elements for main screen overlays
   const startPlayBtn = document.getElementById('start-play');
   const previewOverlay = document.getElementById('preview');
-  const menuOverlay = document.getElementById('menu');
-  const backBtn = document.getElementById('back-to-preview');
-  const mode2pBtn = document.getElementById('mode-2p');
-  const modeCpuBtn = document.getElementById('mode-cpu');
 
   // Elements for tab switching (Gallery, Description, Controls)
   const tabButtons = document.querySelectorAll('.tab-btn');
@@ -27,31 +22,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- 2. OVERLAY NAVIGATION ---
-  if (startPlayBtn && previewOverlay && menuOverlay) {
+  // --- 2. LAUNCH GAME MANUALLY ON PLAY CLICK ---
+  if (startPlayBtn && previewOverlay) {
     startPlayBtn.addEventListener('click', () => {
+      // 1. Hide the start screen preview overlay
       previewOverlay.classList.add('hidden');
-      menuOverlay.classList.remove('hidden');
+
+      // 2. Dynamically load the game engine scripts so the game only starts now
+      const errorScreenScript = document.createElement('script');
+      errorScreenScript.src = "https://cdn.jsdelivr.net/gh/AZURE2077/polytrack-beta-0.6.0@main/error_screen.bundle.js";
+      errorScreenScript.defer = true;
+      document.body.appendChild(errorScreenScript);
+
+      const mainScript = document.createElement('script');
+      mainScript.src = "https://cdn.jsdelivr.net/gh/AZURE2077/polytrack-beta-0.6.0@main/main.bundle.js";
+      mainScript.defer = true;
+      document.body.appendChild(mainScript);
+
+      // 3. Keep canvas focus ready for control input
+      const gameCanvas = document.getElementById('screen');
+      if (gameCanvas) {
+        gameCanvas.focus();
+      }
     });
   }
-
-  if (backBtn && previewOverlay && menuOverlay) {
-    backBtn.addEventListener('click', () => {
-      menuOverlay.classList.add('hidden');
-      previewOverlay.classList.remove('hidden');
-    });
-  }
-
-  const launchGame = () => {
-    if (menuOverlay) menuOverlay.classList.add('hidden');
-    if (previewOverlay) previewOverlay.classList.add('hidden');
-    
-    const gameCanvas = document.getElementById('screen');
-    if (gameCanvas) {
-      gameCanvas.focus();
-    }
-  };
-
-  if (mode2pBtn) mode2pBtn.addEventListener('click', launchGame);
-  if (modeCpuBtn) modeCpuBtn.addEventListener('click', launchGame);
 });
