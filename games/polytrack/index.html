@@ -202,7 +202,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 30px;
-            background: rgba(13, 10, 28, 0.6);
+            background: rgba(13, 10, 28, 0.4);
             backdrop-filter: blur(8px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
@@ -213,6 +213,9 @@
             font-size: 1.3rem;
             color: #FF7A33;
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .nav-right {
@@ -224,7 +227,8 @@
         .nav-title {
             font-family: 'Lexend', sans-serif;
             font-weight: 500;
-            color: #F3EDF7;
+            color: #9089A3;
+            font-size: 0.95rem;
         }
 
         .exit-btn {
@@ -232,15 +236,23 @@
             font-weight: 600;
             color: #9089A3;
             text-decoration: none;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .exit-btn:hover {
             color: #FF7A33;
+            background: rgba(255, 255, 255, 0.1);
         }
 
-        /* Main Center Card Layout */
+        /* Main Center Card Layout matching Summit Smash dimensions */
         .menu-main {
             flex: 1;
             display: flex;
@@ -252,14 +264,13 @@
         }
 
         .menu-container {
-            background-color: rgba(20, 16, 43, 0.85);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 122, 51, 0.25);
-            border-radius: 16px;
-            padding: 40px;
-            max-width: 620px;
+            background-color: rgba(19, 15, 38, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 14px;
+            padding: 40px 50px;
+            max-width: 650px;
             width: 100%;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -268,31 +279,29 @@
         .menu-container h1 {
             font-family: 'Lexend', sans-serif;
             font-weight: 700;
-            font-size: 42px;
-            margin: 0 0 10px 0;
-            color: #FF7A33;
-            letter-spacing: 0.5px;
-            text-shadow: 0 0 15px rgba(255, 122, 51, 0.3);
+            font-size: 36px;
+            margin: 0 0 12px 0;
+            color: #FFFFFF;
+            letter-spacing: -0.5px;
+            text-align: center;
         }
 
         .menu-container .tagline {
-            font-size: 15px;
+            font-size: 14px;
             line-height: 1.6;
             color: #9089A3;
             text-align: center;
             margin: 0 0 25px 0;
-            max-width: 520px;
+            max-width: 480px;
         }
 
-        /* Tabs Interface */
+        /* Tabs Row Styling */
         .tabs {
             display: flex;
-            gap: 10px;
-            margin-bottom: 25px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            gap: 12px;
+            margin-bottom: 20px;
             width: 100%;
             justify-content: center;
-            padding-bottom: 10px;
         }
 
         .tab-btn {
@@ -301,26 +310,35 @@
             color: #9089A3;
             font-family: 'Lexend', sans-serif;
             font-weight: 600;
-            font-size: 14px;
-            padding: 8px 16px;
+            font-size: 13px;
+            padding: 6px 16px;
             cursor: pointer;
-            transition: color 0.2s, border-color 0.2s;
-            border-bottom: 2px solid transparent;
+            transition: color 0.2s, background-color 0.2s;
+            border-radius: 20px;
         }
 
         .tab-btn:hover {
             color: #F3EDF7;
         }
 
+        /* Active tab colored pill */
         .tab-btn.active {
-            color: #FF7A33;
-            border-color: #FF7A33;
+            color: #130F28;
+            background-color: #FF7A33;
         }
 
-        /* Tab Panels Sizing */
+        /* Separator line under tabs */
+        .tab-separator {
+            width: 100%;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.08);
+            margin-bottom: 24px;
+        }
+
+        /* Tab Panels */
         .tab-panels {
             width: 100%;
-            min-height: 150px;
+            min-height: 140px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -339,37 +357,39 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(3px); }
+            from { opacity: 0; transform: translateY(2px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Gallery tab styles */
+        /* Gallery Grid Layout */
         .preview-gallery {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
+            gap: 16px;
             width: 100%;
         }
 
         .preview-gallery svg {
             width: 100%;
             height: auto;
-            background: rgba(13, 10, 28, 0.5);
-            border-radius: 8px;
+            background: rgba(13, 10, 28, 0.45);
+            border-radius: 10px;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 10px;
+            padding: 12px;
+            box-sizing: border-box;
+            aspect-ratio: 1.5;
         }
 
-        /* Description tab style */
+        /* Description Panel */
         .preview-desc {
-            font-size: 15px;
+            font-size: 14px;
             line-height: 1.6;
             color: #9089A3;
             text-align: center;
             margin: 0;
         }
 
-        /* Controls info layout */
+        /* Controls Panel */
         .controls-info {
             display: flex;
             flex-direction: column;
@@ -377,38 +397,36 @@
             align-items: center;
             text-align: center;
             color: #9089A3;
-            font-size: 15px;
+            font-size: 14px;
         }
 
         .controls-info strong {
             color: #FF7A33;
             font-family: 'Lexend', sans-serif;
+            font-size: 15px;
         }
 
-        /* Unified Orange Play Button */
+        /* Centered Compact Play Button matching Summit Smash exactly */
         .play-btn {
             background-color: #FF7A33;
             color: #130F28;
             border: none;
-            border-radius: 8px;
-            width: 100%;
-            padding: 16px 0;
+            border-radius: 6px;
+            padding: 10px 45px;
             font-family: 'Lexend', sans-serif;
-            font-size: 18px;
+            font-size: 15px;
             font-weight: 700;
             cursor: pointer;
-            transition: transform 0.1s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 4px 15px rgba(255, 122, 51, 0.2);
+            transition: transform 0.1s ease, background-color 0.2s ease;
         }
 
         .play-btn:hover {
             background-color: #ff9154;
-            transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(255, 122, 51, 0.35);
+            transform: scale(1.03);
         }
 
         .play-btn:active {
-            transform: translateY(1px);
+            transform: scale(0.98);
         }
     </style>
 </head>
@@ -516,10 +534,12 @@
                     <button class="tab-btn" data-tab="controls" type="button">Controls</button>
                 </div>
 
+                <div class="tab-separator"></div>
+
                 <div class="tab-panels">
                     <div class="tab-panel active" data-panel="gallery">
                         <div class="preview-gallery">
-                            <svg viewBox="0 0 200 130" role="img" aria-label="Game Preview Asset 1">
+                            <svg viewBox="0 0 200 130" role="img" aria-label="Mock Gallery Item 1">
                                 <rect x="20" y="96" width="160" height="14" fill="#251B23"/>
                                 <rect x="20" y="96" width="160" height="3" fill="#FF7A33"/>
                                 <rect x="55" y="58" width="20" height="38" fill="#FF7A33"/>
@@ -527,7 +547,7 @@
                                 <rect x="125" y="58" width="20" height="38" fill="#6EA8FF"/>
                                 <rect x="131" y="66" width="6" height="6" fill="#130F28"/>
                             </svg>
-                            <svg viewBox="0 0 200 130" role="img" aria-label="Game Preview Asset 2">
+                            <svg viewBox="0 0 200 130" role="img" aria-label="Mock Gallery Item 2">
                                 <rect x="20" y="96" width="160" height="14" fill="#251B23"/>
                                 <rect x="20" y="96" width="160" height="3" fill="#FF7A33"/>
                                 <rect x="55" y="58" width="20" height="38" fill="#FF7A33"/>
@@ -536,7 +556,7 @@
                                 <rect x="140" y="20" width="20" height="38" fill="#6EA8FF"/>
                                 <rect x="146" y="28" width="6" height="6" fill="#130F28"/>
                             </svg>
-                            <svg viewBox="0 0 200 130" role="img" aria-label="Game Stats Asset">
+                            <svg viewBox="0 0 200 130" role="img" aria-label="Mock Gallery Item 3">
                                 <rect x="0" y="0" width="200" height="130" fill="none"/>
                                 <text x="16" y="28" font-family="Lexend, sans-serif" font-weight="600" font-size="13" fill="#F3EDF7">Blaze</text>
                                 <text x="16" y="50" font-family="Lexend, sans-serif" font-weight="700" font-size="20" fill="#FF7A33">64%</text>
@@ -582,7 +602,7 @@
             const playBtn = document.getElementById('play-button');
             const menuOverlay = document.getElementById('menu-overlay');
 
-            // Handle Preview Tabs Switching
+            // Handle Preview Tab Panel Toggles
             const tabButtons = document.querySelectorAll('.tab-btn');
             const tabPanels = document.querySelectorAll('.tab-panel');
 
@@ -604,10 +624,10 @@
             // Start Game Handler
             if (playBtn && menuOverlay) {
                 playBtn.addEventListener('click', function() {
-                    // Hide the custom preview overlay entirely
+                    // Instantly drop overlay to zero visibility
                     menuOverlay.style.display = 'none';
 
-                    // Inject the official WebGL engine scripts dynamically
+                    // Inject the official WebGL engine scripts dynamically.
                     var errorScript = document.createElement('script');
                     errorScript.src = "error_screen.bundle.js";
                     errorScript.defer = true;
