@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Horizon: PolyTrack</title>
-<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horizon - PolyTrack</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <svg class="page-scene" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
@@ -64,46 +64,39 @@
 
   <main>
     <div class="arena-wrap">
-      <iframe id="game-frame" src="polytrack.html" allow="autoplay; keyboard; fullscreen" scrolling="no"></iframe>
+      
+      <div id="game-frame">
+        <iframe id="game-iframe" src="polytrack.html"></iframe>
+      </div>
 
       <div id="preview" class="overlay">
         <div class="preview-content">
           <h1>PolyTrack</h1>
           <p class="preview-tagline">A fast-paced low-poly racing game with intense loops, drifts, and a built-in track editor.</p>
-
           <div class="tabs" role="tablist">
             <button class="tab-btn active" data-tab="description" type="button">Description</button>
             <button class="tab-btn" data-tab="controls" type="button">Controls</button>
           </div>
-
           <div class="tab-panels">
             <div class="tab-panel active" data-panel="description">
               <p class="preview-desc">
-                PolyTrack is a high-speed stunt racing game inspired by TrackMania. 
-                Race against the clock, constantly shifting your line to shave milliseconds off your personal records. 
-                Complete tracks, conquer immense structural loops, or jump directly into the builder to create and test your own track creations.
+                PolyTrack is a high-speed stunt racing game inspired by TrackMania. Race against the clock, constantly shifting your line to shave milliseconds off your personal records.
               </p>
             </div>
-
             <div class="tab-panel" data-panel="controls">
               <div class="controls-info">
-                <div>
-                  <strong>Steering Controls</strong>
-                  <span>WASD / Arrow Keys · Drive & Steer</span>
-                </div>
-                <div>
-                  <strong>System Keys</strong>
-                  <span>R · Quick Restart Match</span>
-                </div>
+                <div><strong>Steering Controls</strong><span>WASD / Arrow Keys · Drive & Steer</span></div>
+                <div><strong>System Keys</strong><span>R · Quick Restart Match</span></div>
               </div>
             </div>
           </div>
-
           <button id="start-play" class="play-btn">Play</button>
         </div>
       </div>
+
     </div>
   </main>
+
   <script src="game.js"></script>
 </body>
 </html>
