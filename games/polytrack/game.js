@@ -8,19 +8,27 @@ document.querySelectorAll(".tab-btn").forEach(btn => {
   });
 });
 
-// Clear menu overlay and initialize game load on Play click
+// Clear menu overlay and dynamically spawn the game iframe on Play click
 document.getElementById("start-play").addEventListener("click", () => {
+  // Hide the preview overlay menu
   document.getElementById("preview").classList.add("hidden");
   
-  const iframe = document.getElementById("game-iframe");
-  if (iframe) {
-    // Read the stored game file name and inject it into the iframe src attribute
-    const gameUrl = iframe.getAttribute("data-src");
-    if (gameUrl && !iframe.src) {
-      iframe.src = gameUrl;
-    }
+  const container = document.getElementById("game-container");
+  if (container) {
+    // Clear any existing content just in case
+    container.innerHTML = "";
     
-    // Pass control focus into the loading viewport
-    iframe.focus();
+    // Create the iframe dynamically
+    const iframe = document.createElement("iframe");
+    iframe.id = "game-iframe";
+    iframe.src = "polytrack.html"; // Load the game cleanly
+    
+    // Append it to our container
+    container.appendChild(iframe);
+    
+    // Focus the iframe so keyboard controls work instantly
+    iframe.onload = () => {
+      iframe.focus();
+    };
   }
 });
