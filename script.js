@@ -1,12 +1,6 @@
-// ---------------------------------------------------------
-// Add a new game by adding one object to this list.
-// slug = the folder name inside /games/ that holds the game.
-// If a game isn't built yet, set ready: false and it'll show
-// as a locked tile instead of a broken link.
-// ---------------------------------------------------------
 const games = [
   { title: "Angry Birds", slug: "angry-birds", blurb: "A physics‑based puzzle game where you launch different birds from a slingshot to destroy structures and knock out enemy pigs.", ready: true },
-  { title: "Basketball Legends", slug: "basketball-legends", blurb: "A fast, chaotic arcade basketball game with iconic players and flashy special moves.", ready: true }
+  { title: "Basketball Legends", slug: "basketball-legends", blurb: "A fast, chaotic arcade basketball game with iconic players and flashy special moves.", ready: true },
   { title: "Chess", slug: "chess", blurb: "A strategic board game where two players move different‑ability pieces on an 8×8 grid to checkmate the opponent’s king.", ready: true },
   { title: "Fireboy & Watergirl: Forest", slug: "fbwg:forest", blurb: "A puzzle-platformer where players guide both characters through several puzzles to reach the exit of each level.", ready: true },
   { title: "Fireboy & Watergirl: Light", slug: "fbwg:light", blurb: "A puzzle-platformer where players guide both characters through several puzzles to reach the exit of each level.", ready: true },
