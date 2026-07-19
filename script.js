@@ -9,6 +9,7 @@ const games = [
   { title: "Ping Pong", slug: "pingpong", blurb: "A fast, close‑range table sport where two players hit a lightweight ball back and forth using small paddles on a divided table.", ready: true },
   { title: "Poly Track", slug: "polytrack", blurb: "A fast-paced racing game where players race through custom tracks, compete for the fastest times, and build their own courses.", ready: true },
   { title: "Slope", slug: "slope", blurb: "A fast downhill game where you control a speeding ball while dodging obstacles.", ready: true },
+  { title: "Subway Surfers", slug: "subway-surfers", blurb: "An endless‑runner where you sprint down train tracks, dodge obstacles, and collect coins while escaping the inspector.", ready: true },
   { title: "Superhot", slug: "superhot", blurb: "A first‑person action shooter game where time only moves when you move.", ready: true },
   { title: "Tennis", slug: "tennis", blurb: "A fast, court‑based sport where players hit a bouncing ball over a net using rackets, trying to land shots inbounds that the opponent can’t return.", ready: true },
   { title: "Tiny Fishing", slug: "tiny-fishing", blurb: "A simple click‑and‑upgrade game where you drop a line, catch stacked fish, and earn coins to extend your line and increase your haul.", ready: true },
