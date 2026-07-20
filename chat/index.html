@@ -12,8 +12,6 @@
 <style>
   /* ---------- Chat page (page-specific, layered on top of style.css) ---------- */
 
-  .chat-hero .hero-inner { padding: 3rem 1.5rem 3rem; }
-
   .chat-shell {
     max-width: 980px;
     margin: 0 auto;
@@ -99,7 +97,22 @@
     padding: 0.75rem 0.5rem;
     overflow-y: auto;
     flex: 1;
+    scrollbar-width: thin;
+    scrollbar-color: var(--line) transparent;
   }
+
+  .convo-list::-webkit-scrollbar,
+  .messages::-webkit-scrollbar { width: 8px; }
+  .convo-list::-webkit-scrollbar-track,
+  .messages::-webkit-scrollbar-track { background: transparent; }
+  .convo-list::-webkit-scrollbar-thumb,
+  .messages::-webkit-scrollbar-thumb {
+    background: var(--line);
+    border-radius: 8px;
+    border: 2px solid var(--ground);
+  }
+  .convo-list::-webkit-scrollbar-thumb:hover,
+  .messages::-webkit-scrollbar-thumb:hover { background: var(--orange); }
 
   .convo-item {
     display: flex;
@@ -187,6 +200,8 @@
     display: flex;
     flex-direction: column;
     gap: 0.6rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--line) transparent;
   }
 
   .msg {
@@ -323,15 +338,72 @@
     border-radius: 8px;
     padding: 0.4rem;
     margin-bottom: 0.9rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--line) transparent;
   }
 
-  .modal-check-row {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.4rem 0.3rem;
-    font-size: 0.85rem;
+  .modal-checklist::-webkit-scrollbar { width: 8px; }
+  .modal-checklist::-webkit-scrollbar-track { background: transparent; }
+  .modal-checklist::-webkit-scrollbar-thumb {
+    background: var(--line);
+    border-radius: 8px;
+    border: 2px solid var(--ground);
   }
+  .modal-checklist::-webkit-scrollbar-thumb:hover { background: var(--orange); }
+
+  .modal-check-row {
+    display: flex !important;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 0.4rem;
+    font-size: 0.85rem;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .modal-check-row:hover { background: rgba(255, 122, 51, 0.08); }
+
+  .check-input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .check-box {
+    width: 18px;
+    height: 18px;
+    border-radius: 5px;
+    border: 1px solid var(--line);
+    background: var(--sky-deep);
+    flex-shrink: 0;
+    position: relative;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+
+  .check-input:checked + .check-box {
+    background: var(--orange);
+    border-color: var(--orange);
+  }
+
+  .check-input:checked + .check-box::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: 5px;
+    height: 9px;
+    border: solid var(--sky-deep);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+
+  .check-input:focus-visible + .check-box {
+    outline: 2px solid var(--orange);
+    outline-offset: 2px;
+  }
+
+  .check-name { font-size: 0.85rem; }
 
   .modal-actions {
     display: flex;
@@ -721,7 +793,10 @@
       state.friends.forEach(f => {
         const row = document.createElement('label');
         row.className = 'modal-check-row';
-        row.innerHTML = `<input type="checkbox" value="${f.id}"> ${f.name}`;
+        row.innerHTML = `
+          <input type="checkbox" class="check-input" value="${f.id}">
+          <span class="check-box"></span>
+          <span class="check-name">${f.name}</span>`;
         list.appendChild(row);
       });
       openModal('newGroupModal');
