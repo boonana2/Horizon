@@ -386,10 +386,10 @@
         <span class="nav-emoji">🌅</span> Horizon
       </a>
       <a href="../othergames/index.html" class="nav-link">Other Games</a>
+      <a href="index.html" class="nav-link nav-link-active">Chat</a>
     </div>
     <div class="nav-right">
       <a href="../info/index.html" class="nav-link">Info</a>
-      <a href="index.html" class="nav-link nav-link-active">Chat</a>
     </div>
   </nav>
 
@@ -402,8 +402,27 @@
       <circle cx="990" cy="155" r="1.6" fill="#F3EDF7" opacity="0.65"/>
     </svg>
     <div class="glow" aria-hidden="true"></div>
+    <svg class="sun-art" viewBox="0 0 400 180" aria-hidden="true">
+      <defs>
+        <filter id="soft-glow" x="-60%" y="-60%" width="220%" height="220%">
+          <feGaussianBlur stdDeviation="7" result="blur"/>
+          <feMerge>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+        <clipPath id="stripes">
+          <rect x="0" y="30" width="400" height="42"/>
+          <rect x="0" y="88" width="400" height="34"/>
+          <rect x="0" y="136" width="400" height="28"/>
+          <rect x="0" y="172" width="400" height="8"/>
+        </clipPath>
+      </defs>
+      <path d="M30,180 A170,170 0 0 1 370,180" fill="none" stroke="#FF7A33" stroke-width="1" opacity="0.3" filter="url(#soft-glow)"/>
+      <path d="M50,180 A150,150 0 0 1 350,180 Z" fill="#FF7A33" clip-path="url(#stripes)" filter="url(#soft-glow)"/>
+    </svg>
     <div class="hero-inner">
-      <h1 class="wordmark" style="font-size: clamp(2.2rem, 7vw, 3.6rem);">Chat</h1>
+      <h1 class="wordmark">Horizon</h1>
     </div>
     <div class="divider" aria-hidden="true"></div>
   </header>
@@ -415,7 +434,7 @@
         <div class="sidebar-head">
           <h2>Friends</h2>
           <div style="display:flex; gap:0.4rem;">
-            <button class="icon-btn" id="newGroupBtn" title="New group">+G</button>
+            <button class="icon-btn" id="newGroupBtn" title="New group" style="font-size: 0.68rem; width: 38px;">+GC</button>
             <button class="icon-btn" id="addFriendBtn" title="Add friend">+</button>
           </div>
         </div>
