@@ -357,3 +357,12 @@ footer {
   color: var(--muted);
   font-size: 0.9rem;
 }
+
+.nav-center-line {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.75rem;      /* was 0.85rem */
+  color: var(--muted);
+  white-space: nowrap;
+  text-align: center;      /* explicit centering, in case it wasn't inheriting */
+}
