@@ -252,6 +252,39 @@ main { max-width: 980px; margin: 0 auto; padding: 3rem 1.5rem 1rem; }
   border: 1px solid var(--line);
 }
 
+/* ---------- Game sections (grouped by category) ---------- */
+
+.game-section {
+  margin-bottom: 2.75rem;
+}
+
+.game-section:last-child {
+  margin-bottom: 0;
+}
+
+.section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 1.1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.section-heading h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.section-heading .count {
+  font-size: 0.78rem;
+}
+
 /* ---------- Empty note / footer ---------- */
 
 .empty-note {
