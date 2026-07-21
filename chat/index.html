@@ -449,6 +449,80 @@
     }
     .panel { height: 380px; }
   }
+
+  /* Auth */
+  .auth-shell {
+    max-width: 380px;
+    margin: 3rem auto;
+    padding: 0 1.5rem 4rem;
+  }
+
+  .auth-panel { padding: 1.6rem; }
+
+  .auth-panel h2 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin: 0 0 1.1rem;
+  }
+
+  .auth-panel label {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-bottom: 0.35rem;
+  }
+
+  .auth-panel input {
+    width: 100%;
+    background: var(--sky-deep);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 0.6rem 0.75rem;
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .auth-panel input:focus { outline: none; border-color: var(--orange); }
+
+  .link-btn {
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-family: var(--font-body);
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .link-btn:hover { color: var(--orange); }
+
+  .auth-error {
+    font-size: 0.8rem;
+    color: #FF7A7A;
+    margin-top: 0.8rem;
+    min-height: 1em;
+  }
+
+  .signed-in-as {
+    font-size: 0.72rem;
+    color: var(--muted);
+    padding: 0 0.15rem 0.6rem;
+  }
+
+  .signed-in-as button {
+    background: none;
+    border: none;
+    color: var(--orange);
+    font-size: 0.72rem;
+    text-decoration: underline;
+    cursor: pointer;
+    font-family: var(--font-body);
+    padding: 0;
+  }
 </style>
 </head>
 <body>
@@ -500,40 +574,62 @@
   </header>
 
   <main>
-    <div class="chat-shell">
-      <!-- Sidebar: friends + conversations -->
-      <div class="panel">
-        <div class="sidebar-head">
-          <h2>Friends</h2>
-          <div style="display:flex; gap:0.4rem;">
-            <button class="icon-btn" id="newGroupBtn" title="New group" style="font-size: 0.68rem; width: 38px;">+GC</button>
-            <button class="icon-btn" id="addFriendBtn" title="Add friend">+</button>
-          </div>
+    <!-- Auth gate -->
+    <div class="auth-shell" id="authShell">
+      <div class="panel auth-panel">
+        <h2 id="authTitle">Log in</h2>
+        <label for="authUsername">Username</label>
+        <input type="text" id="authUsername" autocomplete="username">
+        <label for="authPassword">Password</label>
+        <input type="password" id="authPassword" autocomplete="current-password">
+        <div class="modal-actions" style="justify-content:space-between; align-items:center;">
+          <button class="link-btn" id="authToggle">Need an account? Sign up</button>
+          <button class="btn-primary" id="authSubmit">Log in</button>
         </div>
-        <div class="sidebar-tabs">
-          <button class="sidebar-tab active" data-tab="all">All</button>
-          <button class="sidebar-tab" data-tab="requests">Requests</button>
-        </div>
-        <ul class="convo-list" id="convoList"></ul>
+        <p class="auth-error" id="authError"></p>
       </div>
+    </div>
 
-      <!-- Chat window -->
-      <div class="panel chat-window">
-        <div id="chatEmpty" class="chat-window-empty">
-          Pick a friend or group on the left to start chatting.
-        </div>
-        <div id="chatActive" style="display:none; flex-direction:column; height:100%;">
-          <div class="chat-head">
-            <div class="avatar" id="chatAvatar"></div>
-            <div>
-              <div class="chat-head-name" id="chatName"></div>
-              <div class="chat-head-sub" id="chatSub"></div>
+    <!-- Chat shell -->
+    <div id="chatOuter" style="display:none;">
+      <div class="signed-in-as">
+        Signed in as <strong id="signedInName"></strong> · <button id="logoutBtn">Log out</button>
+      </div>
+      <div class="chat-shell">
+        <!-- Sidebar: friends + conversations -->
+        <div class="panel">
+          <div class="sidebar-head">
+            <h2>Friends</h2>
+            <div style="display:flex; gap:0.4rem;">
+              <button class="icon-btn" id="newGroupBtn" title="New group" style="font-size: 0.68rem; width: 38px;">+GC</button>
+              <button class="icon-btn" id="addFriendBtn" title="Add friend">+</button>
             </div>
           </div>
-          <div class="messages" id="messages"></div>
-          <div class="composer">
-            <input type="text" id="messageInput" placeholder="Message…" autocomplete="off">
-            <button class="send-btn" id="sendBtn">Send</button>
+          <div class="sidebar-tabs">
+            <button class="sidebar-tab active" data-tab="all">All</button>
+            <button class="sidebar-tab" data-tab="requests">Requests</button>
+          </div>
+          <ul class="convo-list" id="convoList"></ul>
+        </div>
+
+        <!-- Chat window -->
+        <div class="panel chat-window">
+          <div id="chatEmpty" class="chat-window-empty">
+            Pick a friend or group on the left to start chatting.
+          </div>
+          <div id="chatActive" style="display:none; flex-direction:column; height:100%;">
+            <div class="chat-head">
+              <div class="avatar" id="chatAvatar"></div>
+              <div>
+                <div class="chat-head-name" id="chatName"></div>
+                <div class="chat-head-sub" id="chatSub"></div>
+              </div>
+            </div>
+            <div class="messages" id="messages"></div>
+            <div class="composer">
+              <input type="text" id="messageInput" placeholder="Message…" autocomplete="off">
+              <button class="send-btn" id="sendBtn">Send</button>
+            </div>
           </div>
         </div>
       </div>
@@ -550,7 +646,7 @@
         <button class="btn-ghost" data-close="addFriendModal">Cancel</button>
         <button class="btn-primary" id="sendRequestBtn">Send request</button>
       </div>
-      <p class="modal-note">This UI is a placeholder — wiring it to real accounts requires the backend from the setup guide (auth + D1 + friend request endpoints).</p>
+      <p class="modal-note">They'll show up under the Requests tab once they accept.</p>
     </div>
   </div>
 
@@ -570,170 +666,47 @@
   </div>
 
   <script>
-    /*
-      Demo data layer.
-      -----------------
-      Everything below runs entirely in the browser (localStorage) so you can see
-      the UI work today. To make it a real chat feature, swap these three spots
-      for calls to your backend:
+    // ---------------------------------------------------------------------
+    // Set this to your deployed Worker URL (see horizon-chat-backend/README.md,
+    // step 5). It'll look like https://horizon-chat.your-subdomain.workers.dev
+    // ---------------------------------------------------------------------
+    const API_BASE = 'https://horizon-chat.YOUR-SUBDOMAIN.workers.dev';
 
-        1. loadState()/saveState()   -> fetch friends/conversations from D1 via a Worker
-        2. openConversation()        -> open a WebSocket to that conversation's Durable Object
-        3. sendMessage()             -> ws.send(...) instead of pushing into local state
-
-      The message list, sidebar, and modals are already wired to a single `state`
-      object, so once messages arrive over a real WebSocket you just push them
-      into state.conversations[id].messages and call renderMessages() again.
-    */
-
-    const STORAGE_KEY = 'horizon-chat-demo-state';
-
-    const seedState = {
-      me: { id: 'me', name: 'You' },
-      friends: [
-        { id: 'f1', name: 'Rae', online: true },
-        { id: 'f2', name: 'Jules', online: false },
-        { id: 'f3', name: 'Sam', online: true }
-      ],
-      requests: [
-        { id: 'r1', name: 'Kit' }
-      ],
-      conversations: [
-        {
-          id: 'c1', type: 'dm', name: 'Rae', memberIds: ['f1'],
-          messages: [
-            { sender: 'Rae', text: 'hey, you free to play tonight?' },
-            { sender: 'me', text: 'yeah, give me 10 min' }
-          ]
-        },
-        {
-          id: 'c2', type: 'dm', name: 'Jules', memberIds: ['f2'],
-          messages: [ { sender: 'Jules', text: 'gg last night' } ]
-        },
-        {
-          id: 'c3', type: 'group', name: 'Weekend Crew', memberIds: ['f1', 'f3'],
-          messages: [
-            { sender: 'Sam', text: 'group chat is live 🎉' },
-            { sender: 'Rae', text: 'nice' }
-          ]
-        }
-      ]
-    };
-
-    function loadState() {
-      try {
-        const raw = localStorage.getItem(STORAGE_KEY);
-        return raw ? JSON.parse(raw) : structuredClone(seedState);
-      } catch {
-        return structuredClone(seedState);
-      }
-    }
-
-    function saveState() {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-    }
-
-    let state = loadState();
+    const TOKEN_KEY = 'horizon-chat-token';
+    let token = localStorage.getItem(TOKEN_KEY);
+    let me = null;
+    let authMode = 'login';
+    let friends = [];
+    let requests = [];
+    let conversations = [];
     let activeConvoId = null;
     let activeTab = 'all';
+    let socket = null;
 
+    const authShell = document.getElementById('authShell');
+    const chatOuter = document.getElementById('chatOuter');
     const convoList = document.getElementById('convoList');
     const chatEmpty = document.getElementById('chatEmpty');
     const chatActive = document.getElementById('chatActive');
     const messagesEl = document.getElementById('messages');
     const messageInput = document.getElementById('messageInput');
 
-    function initials(name) {
-      return name.trim().slice(0, 2).toUpperCase();
-    }
-
-    function isOnline(convo) {
-      if (convo.type !== 'dm') return false;
-      const friend = state.friends.find(f => f.id === convo.memberIds[0]);
-      return !!(friend && friend.online);
-    }
-
-    function renderSidebar() {
-      convoList.innerHTML = '';
-
-      if (activeTab === 'requests') {
-        if (state.requests.length === 0) {
-          convoList.innerHTML = '<li class="empty-list-note">No pending requests.</li>';
-          return;
+    async function api(path, options = {}) {
+      const res = await fetch(API_BASE + path, {
+        ...options,
+        headers: {
+          'Content-Type': 'application/json',
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
+          ...(options.headers || {})
         }
-        state.requests.forEach(req => {
-          const li = document.createElement('li');
-          li.className = 'convo-item';
-          li.innerHTML = `
-            <div class="avatar">${initials(req.name)}</div>
-            <div class="convo-meta" style="flex:1;">
-              <div class="convo-name">${req.name}</div>
-              <div class="convo-preview">wants to be friends</div>
-            </div>`;
-          const acceptBtn = document.createElement('button');
-          acceptBtn.className = 'icon-btn';
-          acceptBtn.textContent = '✓';
-          acceptBtn.title = 'Accept';
-          acceptBtn.onclick = (e) => { e.stopPropagation(); acceptRequest(req.id); };
-          li.appendChild(acceptBtn);
-          convoList.appendChild(li);
-        });
-        return;
-      }
-
-      if (state.conversations.length === 0) {
-        convoList.innerHTML = '<li class="empty-list-note">No conversations yet. Add a friend to get started.</li>';
-        return;
-      }
-
-      state.conversations.forEach(convo => {
-        const last = convo.messages[convo.messages.length - 1];
-        const li = document.createElement('li');
-        li.className = 'convo-item' + (convo.id === activeConvoId ? ' active' : '');
-        li.innerHTML = `
-          <div class="avatar${isOnline(convo) ? ' online' : ''}">${initials(convo.name)}</div>
-          <div class="convo-meta">
-            <div class="convo-name">${convo.name}${convo.type === 'group' ? ' · group' : ''}</div>
-            <div class="convo-preview">${last ? (last.sender === 'me' ? 'You: ' : '') + last.text : 'Say hi 👋'}</div>
-          </div>`;
-        li.onclick = () => openConversation(convo.id);
-        convoList.appendChild(li);
       });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || 'Something went wrong.');
+      return data;
     }
 
-    function openConversation(id) {
-      activeConvoId = id;
-      const convo = state.conversations.find(c => c.id === id);
-      if (!convo) return;
-
-      chatEmpty.style.display = 'none';
-      chatActive.style.display = 'flex';
-
-      document.getElementById('chatAvatar').textContent = initials(convo.name);
-      document.getElementById('chatName').textContent = convo.name;
-      document.getElementById('chatSub').textContent =
-        convo.type === 'group' ? `${convo.memberIds.length + 1} members` : (isOnline(convo) ? 'Online' : 'Offline');
-
-      renderMessages();
-      renderSidebar();
-
-      // TODO: replace the local-state read above with opening a WebSocket:
-      // const ws = new WebSocket(`wss://your-worker.example.com/room/${id}`);
-      // ws.onmessage = (evt) => { pushIncomingMessage(id, JSON.parse(evt.data)); };
-    }
-
-    function renderMessages() {
-      const convo = state.conversations.find(c => c.id === activeConvoId);
-      if (!convo) return;
-      messagesEl.innerHTML = '';
-      convo.messages.forEach(m => {
-        const div = document.createElement('div');
-        div.className = 'msg ' + (m.sender === 'me' ? 'msg-me' : 'msg-them');
-        div.innerHTML = (m.sender === 'me' ? '' : `<div class="msg-sender">${m.sender}</div>`) +
-          escapeHtml(m.text);
-        messagesEl.appendChild(div);
-      });
-      messagesEl.scrollTop = messagesEl.scrollHeight;
+    function initials(name) {
+      return (name || '?').trim().slice(0, 2).toUpperCase();
     }
 
     function escapeHtml(str) {
@@ -742,32 +715,133 @@
       return div.innerHTML;
     }
 
-    function sendMessage() {
-      const text = messageInput.value.trim();
-      if (!text || !activeConvoId) return;
-      const convo = state.conversations.find(c => c.id === activeConvoId);
-      convo.messages.push({ sender: 'me', text });
-      messageInput.value = '';
-      saveState();
-      renderMessages();
-      renderSidebar();
+    // ---------- Auth ----------
 
-      // TODO: replace with ws.send(JSON.stringify({ type: 'message', content: text }))
+    function showAuth() {
+      authShell.style.display = 'block';
+      chatOuter.style.display = 'none';
     }
 
-    function acceptRequest(reqId) {
-      const req = state.requests.find(r => r.id === reqId);
-      if (!req) return;
-      state.requests = state.requests.filter(r => r.id !== reqId);
-      const friendId = req.id.replace('r', 'f');
-      state.friends.push({ id: friendId, name: req.name, online: false });
-      state.conversations.push({ id: 'c' + friendId, type: 'dm', name: req.name, memberIds: [friendId], messages: [] });
-      saveState();
-      activeTab = 'all';
-      document.querySelectorAll('.sidebar-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === 'all'));
-      renderSidebar();
+    function showChat() {
+      authShell.style.display = 'none';
+      chatOuter.style.display = 'block';
+      document.getElementById('signedInName').textContent = me.username;
+    }
 
-      // TODO: replace with a POST to your friend-request-accept endpoint
+    document.getElementById('authToggle').addEventListener('click', () => {
+      authMode = authMode === 'login' ? 'signup' : 'login';
+      document.getElementById('authTitle').textContent = authMode === 'login' ? 'Log in' : 'Sign up';
+      document.getElementById('authSubmit').textContent = authMode === 'login' ? 'Log in' : 'Sign up';
+      document.getElementById('authToggle').textContent =
+        authMode === 'login' ? 'Need an account? Sign up' : 'Already have one? Log in';
+      document.getElementById('authError').textContent = '';
+    });
+
+    document.getElementById('authSubmit').addEventListener('click', submitAuth);
+    document.getElementById('authPassword').addEventListener('keydown', (e) => { if (e.key === 'Enter') submitAuth(); });
+
+    async function submitAuth() {
+      const username = document.getElementById('authUsername').value.trim();
+      const password = document.getElementById('authPassword').value;
+      const errEl = document.getElementById('authError');
+      errEl.textContent = '';
+      if (!username || !password) { errEl.textContent = 'Fill in both fields.'; return; }
+
+      try {
+        const data = await api(authMode === 'login' ? '/api/login' : '/api/signup', {
+          method: 'POST',
+          body: JSON.stringify({ username, password })
+        });
+        token = data.token;
+        localStorage.setItem(TOKEN_KEY, token);
+        me = data.user;
+        showChat();
+        await loadEverything();
+      } catch (err) {
+        errEl.textContent = err.message;
+      }
+    }
+
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      token = null;
+      me = null;
+      localStorage.removeItem(TOKEN_KEY);
+      if (socket) socket.close();
+      showAuth();
+    });
+
+    // ---------- Loading data ----------
+
+    async function loadEverything() {
+      const [friendsData, convosData] = await Promise.all([
+        api('/api/friends'),
+        api('/api/conversations')
+      ]);
+      friends = friendsData.friends;
+      requests = friendsData.requests;
+      conversations = convosData.conversations;
+      renderSidebar();
+    }
+
+    // ---------- Sidebar ----------
+
+    function renderSidebar() {
+      convoList.innerHTML = '';
+
+      if (activeTab === 'requests') {
+        if (requests.length === 0) {
+          convoList.innerHTML = '<li class="empty-list-note">No pending requests.</li>';
+          return;
+        }
+        requests.forEach(req => {
+          const li = document.createElement('li');
+          li.className = 'convo-item';
+          li.innerHTML = `
+            <div class="avatar">${initials(req.username)}</div>
+            <div class="convo-meta" style="flex:1;">
+              <div class="convo-name">${escapeHtml(req.username)}</div>
+              <div class="convo-preview">wants to be friends</div>
+            </div>`;
+          const acceptBtn = document.createElement('button');
+          acceptBtn.className = 'icon-btn';
+          acceptBtn.textContent = '✓';
+          acceptBtn.title = 'Accept';
+          acceptBtn.onclick = (e) => { e.stopPropagation(); acceptRequest(req.request_id); };
+          li.appendChild(acceptBtn);
+          convoList.appendChild(li);
+        });
+        return;
+      }
+
+      if (conversations.length === 0) {
+        convoList.innerHTML = '<li class="empty-list-note">No conversations yet. Add a friend to get started.</li>';
+        return;
+      }
+
+      conversations.forEach(convo => {
+        const last = convo.lastMessage;
+        const li = document.createElement('li');
+        li.className = 'convo-item' + (convo.id === activeConvoId ? ' active' : '');
+        li.innerHTML = `
+          <div class="avatar">${initials(convo.name)}</div>
+          <div class="convo-meta">
+            <div class="convo-name">${escapeHtml(convo.name)}${convo.type === 'group' ? ' · group' : ''}</div>
+            <div class="convo-preview">${last ? (last.mine ? 'You: ' : '') + escapeHtml(last.content) : 'Say hi 👋'}</div>
+          </div>`;
+        li.onclick = () => openConversation(convo.id);
+        convoList.appendChild(li);
+      });
+    }
+
+    async function acceptRequest(requestId) {
+      try {
+        await api('/api/friends/accept', { method: 'POST', body: JSON.stringify({ requestId }) });
+        activeTab = 'all';
+        document.querySelectorAll('.sidebar-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === 'all'));
+        await loadEverything();
+      } catch (err) {
+        alert(err.message);
+      }
     }
 
     document.querySelectorAll('.sidebar-tab').forEach(tab => {
@@ -779,24 +853,97 @@
       });
     });
 
+    // ---------- Conversation + messages ----------
+
+    async function openConversation(id) {
+      activeConvoId = id;
+      const convo = conversations.find(c => c.id === id);
+      if (!convo) return;
+
+      chatEmpty.style.display = 'none';
+      chatActive.style.display = 'flex';
+
+      document.getElementById('chatAvatar').textContent = initials(convo.name);
+      document.getElementById('chatName').textContent = convo.name;
+      document.getElementById('chatSub').textContent =
+        convo.type === 'group' ? `${convo.members.length + 1} members` : '';
+
+      renderSidebar();
+      messagesEl.innerHTML = '';
+
+      try {
+        const history = await api(`/api/conversations/${id}/messages`);
+        history.messages.forEach(m => appendMessageEl({
+          sender: m.sender_id === me.id ? 'me' : m.sender_name,
+          text: m.content
+        }));
+      } catch (err) {
+        messagesEl.innerHTML = `<div class="empty-list-note">${escapeHtml(err.message)}</div>`;
+      }
+
+      connectSocket(id);
+    }
+
+    function connectSocket(id) {
+      if (socket) socket.close();
+      const wsBase = API_BASE.replace(/^http/, 'ws');
+      socket = new WebSocket(`${wsBase}/api/conversations/${id}/ws?token=${encodeURIComponent(token)}`);
+
+      socket.addEventListener('message', (evt) => {
+        const data = JSON.parse(evt.data);
+        if (data.type !== 'message') return;
+
+        const convo = conversations.find(c => c.id === id);
+        if (convo) {
+          convo.lastMessage = { content: data.content, mine: data.senderId === me.id };
+        }
+
+        if (id === activeConvoId) {
+          appendMessageEl({ sender: data.senderId === me.id ? 'me' : data.senderName, text: data.content });
+        }
+        renderSidebar();
+      });
+    }
+
+    function appendMessageEl(m) {
+      const div = document.createElement('div');
+      div.className = 'msg ' + (m.sender === 'me' ? 'msg-me' : 'msg-them');
+      div.innerHTML = (m.sender === 'me' ? '' : `<div class="msg-sender">${escapeHtml(m.sender)}</div>`) +
+        escapeHtml(m.text);
+      messagesEl.appendChild(div);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+
+    function sendMessage() {
+      const text = messageInput.value.trim();
+      if (!text || !activeConvoId || !socket || socket.readyState !== WebSocket.OPEN) return;
+      socket.send(JSON.stringify({ type: 'message', content: text }));
+      messageInput.value = '';
+    }
+
     document.getElementById('sendBtn').addEventListener('click', sendMessage);
     messageInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') sendMessage(); });
 
-    // Modals
+    // ---------- Modals ----------
+
     function openModal(id) { document.getElementById(id).classList.add('open'); }
     function closeModal(id) { document.getElementById(id).classList.remove('open'); }
 
     document.getElementById('addFriendBtn').addEventListener('click', () => openModal('addFriendModal'));
+
     document.getElementById('newGroupBtn').addEventListener('click', () => {
       const list = document.getElementById('groupChecklist');
       list.innerHTML = '';
-      state.friends.forEach(f => {
+      if (friends.length === 0) {
+        list.innerHTML = '<div class="empty-list-note">Add some friends first.</div>';
+      }
+      friends.forEach(f => {
         const row = document.createElement('label');
         row.className = 'modal-check-row';
         row.innerHTML = `
           <input type="checkbox" class="check-input" value="${f.id}">
           <span class="check-box"></span>
-          <span class="check-name">${f.name}</span>`;
+          <span class="check-name">${escapeHtml(f.username)}</span>`;
         list.appendChild(row);
       });
       openModal('newGroupModal');
@@ -806,31 +953,55 @@
       btn.addEventListener('click', () => closeModal(btn.dataset.close));
     });
 
-    document.getElementById('sendRequestBtn').addEventListener('click', () => {
+    document.getElementById('sendRequestBtn').addEventListener('click', async () => {
       const input = document.getElementById('friendCodeInput');
-      if (!input.value.trim()) return;
-      // TODO: POST { code: input.value } to your friend-request endpoint instead of this alert
-      alert('Friend request UI only — connect this to your backend to actually send requests.');
-      input.value = '';
-      closeModal('addFriendModal');
+      const username = input.value.trim();
+      if (!username) return;
+      try {
+        await api('/api/friends/request', { method: 'POST', body: JSON.stringify({ username }) });
+        input.value = '';
+        closeModal('addFriendModal');
+      } catch (err) {
+        alert(err.message);
+      }
     });
 
-    document.getElementById('createGroupBtn').addEventListener('click', () => {
+    document.getElementById('createGroupBtn').addEventListener('click', async () => {
       const name = document.getElementById('groupNameInput').value.trim();
       const checked = Array.from(document.querySelectorAll('#groupChecklist input:checked')).map(c => c.value);
       if (!name || checked.length === 0) return;
-      const id = 'g' + Date.now();
-      state.conversations.push({ id, type: 'group', name, memberIds: checked, messages: [] });
-      saveState();
-      document.getElementById('groupNameInput').value = '';
-      closeModal('newGroupModal');
-      renderSidebar();
-      openConversation(id);
 
-      // TODO: replace with a POST that creates the conversation row + a fresh Durable Object
+      try {
+        const data = await api('/api/conversations/group', {
+          method: 'POST',
+          body: JSON.stringify({ name, memberIds: checked })
+        });
+        document.getElementById('groupNameInput').value = '';
+        closeModal('newGroupModal');
+        await loadEverything();
+        openConversation(data.id);
+      } catch (err) {
+        alert(err.message);
+      }
     });
 
-    renderSidebar();
+    // ---------- Boot ----------
+
+    async function init() {
+      if (!token) { showAuth(); return; }
+      try {
+        const data = await api('/api/me');
+        me = data.user;
+        showChat();
+        await loadEverything();
+      } catch {
+        token = null;
+        localStorage.removeItem(TOKEN_KEY);
+        showAuth();
+      }
+    }
+
+    init();
   </script>
 </body>
 </html>
