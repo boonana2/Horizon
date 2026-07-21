@@ -57,8 +57,12 @@ const games = [
 // ---------------------------------------------------------
 const sectionDefs = [
   {
-    name: "Sports",
-    slugs: ["basketball-legends", "pingpong", "rocket-league", "tennis", "8ball"],
+    name: "Action & Shooters",
+    slugs: ["rs1", "rs2", "superhot", "ts2", "ts3"],
+  },
+  {
+    name: "Arcade",
+    slugs: ["crossy-road", "gd", "gd-vibes", "helix", "paperio", "polytrack", "slope", "subway-surfers", "tiny-fishing", "tomb"],
   },
   {
     name: "Cooking",
@@ -69,16 +73,20 @@ const sectionDefs = [
     ],
   },
   {
-    name: "Action & Shooters",
-    slugs: ["rs1", "rs2", "superhot", "ts2", "ts3"],
+    name: "Idle",
+    slugs: ["idle-breakout"],
   },
   {
-    name: "Puzzle & Platformers",
-    slugs: ["angry-birds", "chess", "fbwg:forest", "fbwg:light", "fbwg:ice", "fbwg:crystal", "gd", "gd-vibes", "2048"],
+    name: "Puzzle",
+    slugs: ["angry-birds", "fbwg:forest", "fbwg:light", "fbwg:ice", "fbwg:crystal", "2048"],
   },
   {
-    name: "Arcade & Racing",
-    slugs: ["crossy-road", "helix", "idle-breakout", "paperio", "polytrack", "slope", "subway-surfers", "tiny-fishing", "tomb"],
+    name: "Sports",
+    slugs: ["basketball-legends", "pingpong", "rocket-league", "tennis", "8ball"],
+  },
+  {
+    name: "Strategy",
+    slugs: ["chess"],
   },
 ];
 
