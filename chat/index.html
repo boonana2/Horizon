@@ -670,7 +670,7 @@
     // Set this to your deployed Worker URL (see horizon-chat-backend/README.md,
     // step 5). It'll look like https://horizon-chat.your-subdomain.workers.dev
     // ---------------------------------------------------------------------
-    const API_BASE = 'https://horizon-chat.x67.workers.dev';
+    const API_BASE = 'https://horizon-chat.YOUR-SUBDOMAIN.workers.dev';
 
     const TOKEN_KEY = 'horizon-chat-token';
     let token = localStorage.getItem(TOKEN_KEY);
@@ -893,9 +893,14 @@
         const data = JSON.parse(evt.data);
         if (data.type !== 'message') return;
 
-        const convo = conversations.find(c => c.id === id);
-        if (convo) {
+        const idx = conversations.findIndex(c => c.id === id);
+        if (idx !== -1) {
+          const convo = conversations[idx];
           convo.lastMessage = { content: data.content, mine: data.senderId === me.id };
+          convo.lastActivityAt = data.createdAt;
+          // Move it to the top, same as the backend's sort-by-recent-activity.
+          conversations.splice(idx, 1);
+          conversations.unshift(convo);
         }
 
         if (id === activeConvoId) {
