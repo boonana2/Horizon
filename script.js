@@ -71,7 +71,7 @@ const sectionDefs = [
   },
   {
     name: "Arcade",
-    slugs: ["crossy-road", "draw-climber", "drift-boss", "gd", "gd-vibes", "helix", "paperio", "polytrack", "slope", "subway-surfers", "tiny-fishing", "tomb"],
+    slugs: ["crossy-road", "draw-climber", "drift-boss", "gd", "gd-vibes", "helix", "paperio", "polytrack", "slope", "subway-surfers", "tiny-fishing", "tomb", "vex4", "vex5", "vex6", "vex7", "vex8", "vexx3m1", "vexx3m2",],
   },
   {
     name: "Cooking",
