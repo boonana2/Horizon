@@ -46,7 +46,7 @@ const games = [
   { title: "Vex 5", slug: "vex5", blurb: "A fast‑paced stickman platformer where players navigate deadly obstacle courses using precise movement and timing.", ready: true },
   { title: "Vex 6", slug: "vex6", blurb: "A fast‑paced stickman platformer where players navigate deadly obstacle courses using precise movement and timing.", ready: true },
   { title: "Vex 7", slug: "vex7", blurb: "A fast‑paced stickman platformer where players navigate deadly obstacle courses using precise movement and timing.", ready: true },
-  { title: "Vex 8", slug: "vex7", blurb: "A fast‑paced stickman platformer where players navigate deadly obstacle courses using precise movement and timing.", ready: true },
+  { title: "Vex 8", slug: "vex8", blurb: "A fast‑paced stickman platformer where players navigate deadly obstacle courses using precise movement and timing.", ready: true },
   { title: "Vex X3M 1", slug: "vexx3m1", blurb: "A fast‑paced motorcycle platformer where players race through obstacle‑filled tracks using precise jumps, momentum control, and stunt‑based movement.", ready: true },
   { title: "Vex X3M 2", slug: "vexx3m2", blurb: "A fast‑paced motorcycle platformer where players race through obstacle‑filled tracks using precise jumps, momentum control, and stunt‑based movement.", ready: true },
   { title: "2048", slug: "2048", blurb: "A sliding‑tile puzzle where you combine matching numbers to reach the 2048 tile.", ready: true },
