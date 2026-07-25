@@ -3,6 +3,8 @@ const games = [
   { title: "Basketball Legends", slug: "basketball-legends", blurb: "A fast, chaotic arcade basketball game with iconic players and flashy special moves.", ready: true },
   { title: "Chess", slug: "chess", blurb: "A strategic board game where two players move different‑ability pieces on an 8×8 grid to checkmate the opponent's king.", ready: true },
   { title: "Crossy Road", slug: "crossy-road", blurb: "An endless arcade hopper where players guide characters across traffic, rivers, and obstacles while aiming for the longest possible run.", ready: true },
+  { title: "Draw Climber", slug: "draw-climber", blurb: "A physics‑based racing game where players sketch custom legs for a block‑shaped runner to adapt to changing terrain.", ready: true },
+  { title: "Drift Boss", slug: "drift-boss", blurb: "A casual drifting game where players steer a car along a narrow, winding platform, maintaining control to avoid falling off the edge.", ready: true },
   { title: "Fireboy & Watergirl: Forest", slug: "fbwg:forest", blurb: "A puzzle-platformer where players guide both characters through several puzzles to reach the exit of each level.", ready: true },
   { title: "Fireboy & Watergirl: Light", slug: "fbwg:light", blurb: "A puzzle-platformer where players guide both characters through several puzzles to reach the exit of each level.", ready: true },
   { title: "Fireboy & Watergirl: Ice", slug: "fbwg:ice", blurb: "A puzzle-platformer where players guide both characters through several puzzles to reach the exit of each level.", ready: true },
@@ -62,7 +64,7 @@ const sectionDefs = [
   },
   {
     name: "Arcade",
-    slugs: ["crossy-road", "gd", "gd-vibes", "helix", "paperio", "polytrack", "slope", "subway-surfers", "tiny-fishing", "tomb"],
+    slugs: ["crossy-road", "draw-climber", "drift-boss", "gd", "gd-vibes", "helix", "paperio", "polytrack", "slope", "subway-surfers", "tiny-fishing", "tomb"],
   },
   {
     name: "Cooking",
