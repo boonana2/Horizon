@@ -42,6 +42,13 @@ const games = [
   { title: "Tme Shooter 3", slug: "ts3", blurb: "A tactical first‑person action game where time only moves when the player moves, creating strategic combat encounters.", ready: true },
   { title: "Tiny Fishing", slug: "tiny-fishing", blurb: "A simple click‑and‑upgrade game where you drop a line, catch stacked fish, and earn coins to extend your line and increase your haul.", ready: true },
   { title: "Tomb of the Mask", slug: "tomb", blurb: "A rapid‑movement arcade maze game where players climb vertically through trap‑filled levels using instant swipe‑based motion.", ready: true },
+  { title: "Vex 4", slug: "vex4", blurb: "A fast‑paced stickman platformer where players navigate deadly obstacle courses using precise movement and timing.", ready: true },
+  { title: "Vex 5", slug: "vex5", blurb: "A fast‑paced stickman platformer where players navigate deadly obstacle courses using precise movement and timing.", ready: true },
+  { title: "Vex 6", slug: "vex6", blurb: "A fast‑paced stickman platformer where players navigate deadly obstacle courses using precise movement and timing.", ready: true },
+  { title: "Vex 7", slug: "vex7", blurb: "A fast‑paced stickman platformer where players navigate deadly obstacle courses using precise movement and timing.", ready: true },
+  { title: "Vex 8", slug: "vex7", blurb: "A fast‑paced stickman platformer where players navigate deadly obstacle courses using precise movement and timing.", ready: true },
+  { title: "Vex X3M 1", slug: "vexx3m1", blurb: "A fast‑paced motorcycle platformer where players race through obstacle‑filled tracks using precise jumps, momentum control, and stunt‑based movement.", ready: true },
+  { title: "Vex X3M 2", slug: "vexx3m2", blurb: "A fast‑paced motorcycle platformer where players race through obstacle‑filled tracks using precise jumps, momentum control, and stunt‑based movement.", ready: true },
   { title: "2048", slug: "2048", blurb: "A sliding‑tile puzzle where you combine matching numbers to reach the 2048 tile.", ready: true },
   { title: "8-Ball", slug: "8ball", blurb: "A classic billiards game where you aim, shoot, and sink all your assigned balls before finishing with the 8‑ball.", ready: true },
 
