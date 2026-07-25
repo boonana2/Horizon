@@ -86,7 +86,7 @@ const sectionDefs = [
   },
   {
     name: "Google Suite",
-    slugs: ["gsnake"],
+    slugs: ["gbaseball", "ggg", "gminesweeper", "gsnake"],
   },
   {
     name: "Idle",
