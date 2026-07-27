@@ -38,6 +38,7 @@ const games = [
   { title: "Rooftop Snipers 1", slug: "rs1", blurb: "A precision‑focused shooting game where players eliminate targets from elevated vantage points while managing timing and accuracy.", ready: true },
   { title: "Rooftop Snipers 2", slug: "rs2", blurb: "A precision‑focused shooting game where players eliminate targets from elevated vantage points while managing timing and accuracy.", ready: true },
   { title: "Slope", slug: "slope", blurb: "A fast downhill game where you control a speeding ball while dodging obstacles.", ready: true },
+  { title: "Solar Smash", slug: "solarsmash", blurb: "A planet‑destruction simulator where players use powerful weapons and cosmic phenomena to obliterate worlds in spectacular detail.", ready: true },
   { title: "Subway Surfers", slug: "subway-surfers", blurb: "An endless‑runner where you sprint down train tracks, dodge obstacles, and collect coins while escaping the inspector.", ready: true },
   { title: "Superhot", slug: "superhot", blurb: "A first‑person action shooter game where time only moves when you move.", ready: true },
   { title: "Tennis", slug: "tennis", blurb: "A fast, court‑based sport where players hit a bouncing ball over a net using rackets, trying to land shots inbounds that the opponent can't return.", ready: true },
