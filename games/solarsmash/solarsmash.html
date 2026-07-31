@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Loading...</title>
+<style>html,body{background:#000;color:#fff;font-family:sans-serif;margin:0;height:100%;display:flex;align-items:center;justify-content:center;}</style>
+</head>
+<body>
+<div id="status">Loading chunk 1 / 5...</div>
+<script>
+(async function () {
+  var chunkFiles = ["chunk000.txt", "chunk001.txt", "chunk002.txt", "chunk003.txt", "chunk004.txt"];
+  var statusEl = document.getElementById("status");
+  var parts = [];
+  for (var i = 0; i < chunkFiles.length; i++) {
+    statusEl.textContent = "Loading chunk " + (i + 1) + " / " + chunkFiles.length + "...";
+    var res = await fetch(chunkFiles[i]);
+    if (!res.ok) {
+      statusEl.textContent = "Failed to load " + chunkFiles[i] + " (HTTP " + res.status + ")";
+      return;
+    }
+    parts.push(await res.text());
+  }
+  var fullHtml = parts.join("");
+  document.open();
+  document.write(fullHtml);
+  document.close();
+})();
+</script>
+</body>
+</html>
