@@ -42,6 +42,7 @@ const games = [
   { title: "Run 3", slug: "run3", blurb: "A fast‑paced 3D platformer where players sprint, jump, and wall‑run through collapsing tunnels and floating platforms to reach the end of each level.", ready: true },
   { title: "Slope", slug: "slope", blurb: "A fast downhill game where you control a speeding ball while dodging obstacles.", ready: true },
   { title: "Solar Smash", slug: "solarsmash", blurb: "A planet‑destruction simulator where players use powerful weapons and cosmic phenomena to obliterate worlds in spectacular detail.", ready: true },
+  { title: "Stick Archers Battle", slug: "stickarcherbattle", blurb: "A minimalist archery duel game where players aim, draw, and fire arrows to defeat opponents using precise angle control and timing.", ready: true },
   { title: "Subway Surfers", slug: "subway-surfers", blurb: "An endless‑runner where you sprint down train tracks, dodge obstacles, and collect coins while escaping the inspector.", ready: true },
   { title: "Superhot", slug: "superhot", blurb: "A first‑person action shooter game where time only moves when you move.", ready: true },
   { title: "Tennis", slug: "tennis", blurb: "A fast, court‑based sport where players hit a bouncing ball over a net using rackets, trying to land shots inbounds that the opponent can't return.", ready: true },
@@ -78,7 +79,7 @@ const sectionDefs = [
   },
   {
     name: "Arcade",
-    slugs: ["crossy-road", "draw-climber", "drift-boss", "gd", "gd-vibes", "helix", "paperio", "polytrack", "run1", "run2", "run3", "slope", "solarsmash", "subway-surfers", "tiny-fishing", "tomb", "vex4", "vex5", "vex6", "vex7", "vex8", "vexx3m1", "vexx3m2",],
+    slugs: ["crossy-road", "draw-climber", "drift-boss", "gd", "gd-vibes", "helix", "paperio", "polytrack", "run1", "run2", "run3", "slope", "solarsmash", "stickarcherbattle", "subway-surfers", "tiny-fishing", "tomb", "vex4", "vex5", "vex6", "vex7", "vex8", "vexx3m1", "vexx3m2",],
   },
   {
     name: "Cooking",
