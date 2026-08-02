@@ -44,6 +44,7 @@ const games = [
   { title: "Solar Smash", slug: "solarsmash", blurb: "A planet‑destruction simulator where players use powerful weapons and cosmic phenomena to obliterate worlds in spectacular detail.", ready: true },
   { title: "Stick Archers Battle", slug: "stickarcherbattle", blurb: "A minimalist archery duel game where players aim, draw, and fire arrows to defeat opponents using precise angle control and timing.", ready: true },
   { title: "Subway Surfers", slug: "subway-surfers", blurb: "An endless‑runner where you sprint down train tracks, dodge obstacles, and collect coins while escaping the inspector.", ready: true },
+  { title: "Summit Smash", slug: "summit-smash", blurb: "A fast-paced multiplayer platform fighter inspired by Super Smash Bros.", ready: true },
   { title: "Superhot", slug: "superhot", blurb: "A first‑person action shooter game where time only moves when you move.", ready: true },
   { title: "Tennis", slug: "tennis", blurb: "A fast, court‑based sport where players hit a bouncing ball over a net using rackets, trying to land shots inbounds that the opponent can't return.", ready: true },
   { title: "Time Shooter 2", slug: "ts2", blurb: "A tactical first‑person action game where time only moves when the player moves, creating strategic combat encounters.", ready: true },
@@ -62,7 +63,6 @@ const games = [
 
   { title: "Bomberman", slug: "bomberman", blurb: "A fast-paced multiplayer action game where players place bombs to be the last one standing.", ready: false },
   { title: "test game 1", slug: "smash", blurb: "", ready: false },
-  { title: "Summit Smash", slug: "flash-test", blurb: "A fast-paced multiplayer platform fighter inspired by Super Smash Bros.", ready: false },
 ];
 
 // ---------------------------------------------------------
@@ -79,7 +79,7 @@ const sectionDefs = [
   },
   {
     name: "Arcade",
-    slugs: ["crossy-road", "draw-climber", "drift-boss", "gd", "gd-vibes", "helix", "paperio", "polytrack", "run1", "run2", "run3", "slope", "solarsmash", "stickarcherbattle", "subway-surfers", "tiny-fishing", "tomb", "vex4", "vex5", "vex6", "vex7", "vex8", "vexx3m1", "vexx3m2",],
+    slugs: ["crossy-road", "draw-climber", "drift-boss", "gd", "gd-vibes", "helix", "paperio", "polytrack", "run1", "run2", "run3", "slope", "solarsmash", "stickarcherbattle", "subway-surfers", "summit-smash", "tiny-fishing", "tomb", "vex4", "vex5", "vex6", "vex7", "vex8", "vexx3m1", "vexx3m2",],
   },
   {
     name: "Cooking",
