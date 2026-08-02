@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Offline Game</title>
+<style>
+  html,body{margin:0;padding:0;background:#000;height:100%;overflow:hidden;}
+  #container{width:100vw;height:100vh;display:flex;align-items:center;justify-content:center;}
+  #status{position:fixed;top:10px;left:10px;color:#0f0;font-family:monospace;font-size:13px;background:rgba(0,0,0,0.6);padding:6px 10px;border-radius:4px;z-index:9999;}
+  ruffle-player, #container object, #container embed { width:100% !important; height:100% !important; }
+</style>
+</head>
+<body>
+<div id="status">Booting offline player...</div>
+<div id="container"></div>
+
+<script src="assets/ruffleJs.js"></script>
+<script src="assets/coreJs1.js"></script>
+<script src="assets/coreJs2.js"></script>
+<script src="assets/wasm1.js"></script>
+<script src="assets/wasm2.js"></script>
+<script src="assets/swf.js"></script>
+<script>
+// ---------- base64 -> bytes helper ----------
+function b64ToBytes(b64){
+  const bin = atob(b64);
+  const len = bin.length;
+  const bytes = new Uint8Array(len);
+  for(let i=0;i<len;i++) bytes[i] = bin.charCodeAt(i);
+  return bytes;
+}
+function setStatus(msg){ const s=document.getElementById('status'); if(s) s.textContent = msg; }
+
+// ---------- embedded assets (filled in by build script) ----------
+const ASSET_B64 = window.ASSET_B64;
+const FILENAMES = {
+  coreJs1: "core.ruffle.0875e44536e955474b0c.js",
+  coreJs2: "core.ruffle.831c4f4a93befb9e84af.js",
+  wasm1:   "1ef41ff58c9763bed027.wasm",
+  wasm2:   "63468f5322aed2e768a8.wasm"
+};
+
+setStatus("Decoding embedded assets...");
+
+// Precompute blob URLs for the JS chunks up front
+const coreJs1Bytes = b64ToBytes(ASSET_B64.coreJs1);
+const coreJs2Bytes = b64ToBytes(ASSET_B64.coreJs2);
+const coreJs1Blob = new Blob([coreJs1Bytes], {type:"text/javascript"});
+const coreJs2Blob = new Blob([coreJs2Bytes], {type:"text/javascript"});
+const coreJs1Url = URL.createObjectURL(coreJs1Blob);
+const coreJs2Url = URL.createObjectURL(coreJs2Blob);
+
+// Precompute wasm bytes (decoded lazily to save a beat, but fine to do now - sizes are known upfront)
+const wasm1Bytes = b64ToBytes(ASSET_B64.wasm1);
+const wasm2Bytes = b64ToBytes(ASSET_B64.wasm2);
+
+// ---------- intercept dynamic <script src> chunk loading ----------
+const nativeSrcDesc = Object.getOwnPropertyDescriptor(HTMLScriptElement.prototype, "src")
+  || Object.getOwnPropertyDescriptor(Object.getPrototypeOf(HTMLScriptElement.prototype), "src");
+Object.defineProperty(HTMLScriptElement.prototype, "src", {
+  configurable: true,
+  get(){ return nativeSrcDesc.get.call(this); },
+  set(value){
+    try{
+      if(typeof value === "string"){
+        if(value.indexOf(FILENAMES.coreJs1) !== -1){ value = coreJs1Url; }
+        else if(value.indexOf(FILENAMES.coreJs2) !== -1){ value = coreJs2Url; }
+      }
+    }catch(err){}
+    nativeSrcDesc.set.call(this, value);
+  }
+});
+
+// ---------- intercept fetch() for the wasm chunk requests ----------
+const nativeFetch = window.fetch.bind(window);
+window.fetch = async function(input, init){
+  let url = "";
+  try{
+    if(typeof input === "string"){ url = input; }
+    else if(input instanceof URL){ url = input.href; }
+    else if(input && typeof input.url === "string"){ url = input.url; }
+    else { url = String(input); }
+  }catch(e){}
+  if(url.indexOf(FILENAMES.wasm1) !== -1){
+    return new Response(wasm1Bytes, {status:200, statusText:"OK", headers:{"Content-Type":"application/wasm"}});
+  }
+  if(url.indexOf(FILENAMES.wasm2) !== -1){
+    return new Response(wasm2Bytes, {status:200, statusText:"OK", headers:{"Content-Type":"application/wasm"}});
+  }
+  return nativeFetch(input, init);
+};
+
+setStatus("Loading Ruffle...");
+
+// ---------- load ruffle.js itself from embedded base64 ----------
+const ruffleJsBytes = b64ToBytes(ASSET_B64.ruffleJs);
+const ruffleJsBlob = new Blob([ruffleJsBytes], {type:"text/javascript"});
+const ruffleJsUrl = URL.createObjectURL(ruffleJsBlob);
+
+window.RufflePlayer = window.RufflePlayer || {};
+
+const loaderScript = document.createElement("script");
+loaderScript.src = ruffleJsUrl;
+loaderScript.onload = () => {
+  setStatus("Starting game...");
+  try{
+    const ruffle = window.RufflePlayer.newest();
+    const player = ruffle.createPlayer();
+    const container = document.getElementById("container");
+    container.appendChild(player);
+    const swfBytes = b64ToBytes(ASSET_B64.swf);
+    player.ruffle().load({ data: swfBytes, swfFileName: "game.swf" })
+      .then(() => { setStatus(""); document.getElementById("status").style.display="none"; })
+      .catch(err => { setStatus("Load error: " + err); console.error(err); });
+  }catch(err){
+    setStatus("Init error: " + err);
+    console.error(err);
+  }
+};
+loaderScript.onerror = (e) => { setStatus("Failed to load Ruffle loader script"); console.error(e); };
+document.head.appendChild(loaderScript);
+</script>
+</body>
+</html>
