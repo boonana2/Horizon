@@ -1,5 +1,6 @@
 const games = [
   { title: "Angry Birds", slug: "angry-birds", blurb: "A physics‑based puzzle game where you launch different birds from a slingshot to destroy structures and knock out enemy pigs.", ready: true },
+  { title: "Badminton", slug: "badminton", blurb: "A fast, physics‑based racket game where two players volley a shuttle across the court using precise timing, positioning, and quick reactions.", ready: true },
   { title: "Basketball Legends", slug: "basketball-legends", blurb: "A fast, chaotic arcade basketball game with iconic players and flashy special moves.", ready: true },
   { title: "Bomberman", slug: "bomberman", blurb: "A fast-paced multiplayer action game where players place bombs to be the last one standing.", ready: true },
   { title: "Chess", slug: "chess", blurb: "A strategic board game where two players move different‑ability pieces on an 8×8 grid to checkmate the opponent's king.", ready: true },
@@ -103,7 +104,7 @@ const sectionDefs = [
   },
   {
     name: "Sports",
-    slugs: ["basketball-legends", "pingpong", "rocket-league", "tennis", "8ball"],
+    slugs: ["badminton", "basketball-legends", "pingpong", "rocket-league", "tennis", "8ball"],
   },
   {
     name: "Strategy",
