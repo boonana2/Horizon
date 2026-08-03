@@ -1,6 +1,7 @@
 const games = [
   { title: "Angry Birds", slug: "angry-birds", blurb: "A physics‑based puzzle game where you launch different birds from a slingshot to destroy structures and knock out enemy pigs.", ready: true },
   { title: "Basketball Legends", slug: "basketball-legends", blurb: "A fast, chaotic arcade basketball game with iconic players and flashy special moves.", ready: true },
+  { title: "Bomberman", slug: "bomberman", blurb: "A fast-paced multiplayer action game where players place bombs to be the last one standing.", ready: false },
   { title: "Chess", slug: "chess", blurb: "A strategic board game where two players move different‑ability pieces on an 8×8 grid to checkmate the opponent's king.", ready: true },
   { title: "Crossy Road", slug: "crossy-road", blurb: "An endless arcade hopper where players guide characters across traffic, rivers, and obstacles while aiming for the longest possible run.", ready: true },
   { title: "Draw Climber", slug: "draw-climber", blurb: "A physics‑based racing game where players sketch custom legs for a block‑shaped runner to adapt to changing terrain.", ready: true },
@@ -61,7 +62,6 @@ const games = [
   { title: "2048", slug: "2048", blurb: "A sliding‑tile puzzle where you combine matching numbers to reach the 2048 tile.", ready: true },
   { title: "8-Ball", slug: "8ball", blurb: "A classic billiards game where you aim, shoot, and sink all your assigned balls before finishing with the 8‑ball.", ready: true },
 
-  { title: "Bomberman", slug: "bomberman", blurb: "A fast-paced multiplayer action game where players place bombs to be the last one standing.", ready: false },
   { title: "test game 1", slug: "smash", blurb: "", ready: false },
 ];
 
@@ -79,7 +79,7 @@ const sectionDefs = [
   },
   {
     name: "Arcade",
-    slugs: ["crossy-road", "draw-climber", "drift-boss", "gd", "gd-vibes", "helix", "paperio", "polytrack", "run1", "run2", "run3", "slope", "solarsmash", "stickarcherbattle", "subway-surfers", "summit-smash", "tiny-fishing", "tomb", "vex4", "vex5", "vex6", "vex7", "vex8", "vexx3m1", "vexx3m2",],
+    slugs: ["bomberman", "crossy-road", "draw-climber", "drift-boss", "gd", "gd-vibes", "helix", "paperio", "polytrack", "run1", "run2", "run3", "slope", "solarsmash", "stickarcherbattle", "subway-surfers", "summit-smash", "tiny-fishing", "tomb", "vex4", "vex5", "vex6", "vex7", "vex8", "vexx3m1", "vexx3m2",],
   },
   {
     name: "Cooking",
