@@ -1,7 +1,7 @@
 const games = [
   { title: "Angry Birds", slug: "angry-birds", blurb: "A physics‑based puzzle game where you launch different birds from a slingshot to destroy structures and knock out enemy pigs.", ready: true },
   { title: "Basketball Legends", slug: "basketball-legends", blurb: "A fast, chaotic arcade basketball game with iconic players and flashy special moves.", ready: true },
-  { title: "Bomberman", slug: "bomberman", blurb: "A fast-paced multiplayer action game where players place bombs to be the last one standing.", ready: false },
+  { title: "Bomberman", slug: "bomberman", blurb: "A fast-paced multiplayer action game where players place bombs to be the last one standing.", ready: true },
   { title: "Chess", slug: "chess", blurb: "A strategic board game where two players move different‑ability pieces on an 8×8 grid to checkmate the opponent's king.", ready: true },
   { title: "Crossy Road", slug: "crossy-road", blurb: "An endless arcade hopper where players guide characters across traffic, rivers, and obstacles while aiming for the longest possible run.", ready: true },
   { title: "Draw Climber", slug: "draw-climber", blurb: "A physics‑based racing game where players sketch custom legs for a block‑shaped runner to adapt to changing terrain.", ready: true },
