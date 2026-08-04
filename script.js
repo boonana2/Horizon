@@ -11,6 +11,7 @@ const games = [
   { title: "Fireboy & Watergirl: Light", slug: "fbwg:light", blurb: "A puzzle-platformer where players guide both characters through several puzzles to reach the exit of each level.", ready: true },
   { title: "Fireboy & Watergirl: Ice", slug: "fbwg:ice", blurb: "A puzzle-platformer where players guide both characters through several puzzles to reach the exit of each level.", ready: true },
   { title: "Fireboy & Watergirl: Crystal", slug: "fbwg:crystal", blurb: "A puzzle-platformer where players guide both characters through several puzzles to reach the exit of each level.", ready: true },
+  { title: "Fishy", slug: "fishy", blurb: "A survival arcade game where you swim through the ocean eating smaller fish to grow while avoiding larger predators that can swallow you whole.", ready: true },
   { title: "Geometry Dash", slug: "gd", blurb: "A rhythm‑based platformer where you jump, fly, and dodge obstacles in fast, music‑synced levels.", ready: true },
   { title: "Geometry Dash Vibes", slug: "gd-vibes", blurb: "A rhythm‑runner where you hold space to float upward and release to drop while dodging spikes and obstacles.", ready: true },
   { title: "Google Baseball", slug: "gbaseball", blurb: "A timing‑based arcade sports game where players hit pitches and rack up runs against increasingly tricky AI fielders.", ready: true },
@@ -80,7 +81,7 @@ const sectionDefs = [
   },
   {
     name: "Arcade",
-    slugs: ["bomberman", "crossy-road", "draw-climber", "drift-boss", "gd", "gd-vibes", "helix", "paperio", "polytrack", "run1", "run2", "run3", "slope", "solarsmash", "stickarcherbattle", "subway-surfers", "summit-smash", "tiny-fishing", "tomb", "vex4", "vex5", "vex6", "vex7", "vex8", "vexx3m1", "vexx3m2",],
+    slugs: ["bomberman", "crossy-road", "draw-climber", "drift-boss", "fishy", "gd", "gd-vibes", "helix", "paperio", "polytrack", "run1", "run2", "run3", "slope", "solarsmash", "stickarcherbattle", "subway-surfers", "summit-smash", "tiny-fishing", "tomb", "vex4", "vex5", "vex6", "vex7", "vex8", "vexx3m1", "vexx3m2",],
   },
   {
     name: "Cooking",
