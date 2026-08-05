@@ -18,6 +18,7 @@ const games = [
   { title: "Google Garden Gnomes", slug: "ggg", blurb: "a physics‑based launch game where players catapult gnomes to plant flowers and score points across whimsical garden environments.", ready: true },
   { title: "Google Minesweeper", slug: "gminesweeper", blurb: "A classic logic‑based grid game where players uncover tiles and use numbered clues to avoid hidden mines.", ready: true },
   { title: "Google Snake", slug: "gsnake", blurb: "A classic grid‑based arcade game where players guide a growing snake to collect food without colliding with walls or themselves.", ready: true },
+  { title: "GumDrop Hop", slug: "gumdrophop", blurb: "A light arcade platformer where a bouncing gumdrop leaps across floating candy platforms, collecting stars while avoiding falls.", ready: true },
   { title: "Helix Jump", slug: "helix", blurb: "A fast‑paced arcade game where players guide a falling ball through rotating helix platforms while avoiding obstacles.", ready: true },
   { title: "Idle Breakout", slug: "idle-breakout", blurb: "An idle brick‑breaking game where you buy balls, upgrade them, and let them destroy blocks automatically to earn more cash.", ready: true },
   { title: "Papa's Bakeria", slug: "pbakeria", blurb: "A time‑management cooking simulator where you run a restaurant, take orders, prepare food, and serve customers as fast and accurately as possible.", ready: true },
@@ -81,7 +82,7 @@ const sectionDefs = [
   },
   {
     name: "Arcade",
-    slugs: ["bomberman", "crossy-road", "draw-climber", "drift-boss", "fishy", "gd", "gd-vibes", "helix", "paperio", "polytrack", "run1", "run2", "run3", "slope", "solarsmash", "stickarcherbattle", "subway-surfers", "summit-smash", "tiny-fishing", "tomb", "vex4", "vex5", "vex6", "vex7", "vex8", "vexx3m1", "vexx3m2",],
+    slugs: ["bomberman", "crossy-road", "draw-climber", "drift-boss", "fishy", "gd", "gd-vibes", "gumdrophop", "helix", "paperio", "polytrack", "run1", "run2", "run3", "slope", "solarsmash", "stickarcherbattle", "subway-surfers", "summit-smash", "tiny-fishing", "tomb", "vex4", "vex5", "vex6", "vex7", "vex8", "vexx3m1", "vexx3m2",],
   },
   {
     name: "Cooking",
