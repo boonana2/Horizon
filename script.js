@@ -15,7 +15,7 @@ const games = [
   { title: "Geometry Dash", slug: "gd", blurb: "A rhythm‑based platformer where you jump, fly, and dodge obstacles in fast, music‑synced levels.", ready: true },
   { title: "Geometry Dash Vibes", slug: "gd-vibes", blurb: "A rhythm‑runner where you hold space to float upward and release to drop while dodging spikes and obstacles.", ready: true },
   { title: "Google Baseball", slug: "gbaseball", blurb: "A timing‑based arcade sports game where players hit pitches and rack up runs against increasingly tricky AI fielders.", ready: true },
-  { title: "Google Garden Gnomes", slug: "ggg", blurb: "a physics‑based launch game where players catapult gnomes to plant flowers and score points across whimsical garden environments.", ready: true },
+  { title: "Google Garden Gnomes", slug: "ggg", blurb: "A physics‑based launch game where players catapult gnomes to plant flowers and score points across whimsical garden environments.", ready: true },
   { title: "Google Minesweeper", slug: "gminesweeper", blurb: "A classic logic‑based grid game where players uncover tiles and use numbered clues to avoid hidden mines.", ready: true },
   { title: "Google Snake", slug: "gsnake", blurb: "A classic grid‑based arcade game where players guide a growing snake to collect food without colliding with walls or themselves.", ready: true },
   { title: "Guess Their Answer", slug: "guesstheiranswer", blurb: "A fast party‑style guessing game where players try to name the most common responses to everyday questions before time runs out.", ready: true },
