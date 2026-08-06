@@ -12,7 +12,7 @@ const games = [
   { title: "Fireboy & Watergirl: Ice", slug: "fbwg:ice", blurb: "A puzzle-platformer where players guide both characters through several puzzles to reach the exit of each level.", ready: true },
   { title: "Fireboy & Watergirl: Crystal", slug: "fbwg:crystal", blurb: "A puzzle-platformer where players guide both characters through several puzzles to reach the exit of each level.", ready: true },
   { title: "Fireboy & Watergirl & Greenblub 1", slug: "fbwggb1", blurb: "A puzzle-platformer where players guide both characters through several puzzles to reach the exit of each level.", ready: true },
-  { title: "Fireboy & Watergirl & Greenblub 2", slug: "fbwggb2", blurb: "A puzzle-platformer where players guide both characters through several puzzles to reach the exit of each level.", ready: true },
+  { title: "Fireboy & Watergirl & Greenblub 2", slug: "gbwggb2", blurb: "A puzzle-platformer where players guide both characters through several puzzles to reach the exit of each level.", ready: true },
   { title: "Fishy", slug: "fishy", blurb: "A survival arcade game where you swim through the ocean eating smaller fish to grow while avoiding larger predators that can swallow you whole.", ready: true },
   { title: "Geometry Dash", slug: "gd", blurb: "A rhythm‑based platformer where you jump, fly, and dodge obstacles in fast, music‑synced levels.", ready: true },
   { title: "Geometry Dash Vibes", slug: "gd-vibes", blurb: "A rhythm‑runner where you hold space to float upward and release to drop while dodging spikes and obstacles.", ready: true },
