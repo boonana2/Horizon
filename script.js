@@ -106,7 +106,7 @@ const sectionDefs = [
   },
   {
     name: "Puzzle",
-    slugs: ["angry-birds", "fbwg:forest", "fbwg:light", "fbwg:ice", "fbwg:crystal", "fbwggb1", "fbwggb2", "2048"],
+    slugs: ["angry-birds", "fbwg:forest", "fbwg:light", "fbwg:ice", "fbwg:crystal", "fbwggb1", "gbwggb2", "2048"],
   },
   {
     name: "Sports",
