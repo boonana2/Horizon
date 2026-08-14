@@ -69,7 +69,8 @@ const games = [
   { title: "2048", slug: "2048", blurb: "A sliding‑tile puzzle where you combine matching numbers to reach the 2048 tile.", ready: true },
   { title: "8-Ball", slug: "8ball", blurb: "A classic billiards game where you aim, shoot, and sink all your assigned balls before finishing with the 8‑ball.", ready: true },
 
-  { title: "test game 1", slug: "smash", blurb: "", ready: false },
+  { title: "AI", slug: "ai", blurb: "", ready: true },
+  { title: "test game 1", slug: "smash", blurb: "", ready: false },\
 ];
 
 // ---------------------------------------------------------
@@ -115,6 +116,10 @@ const sectionDefs = [
   {
     name: "Strategy",
     slugs: ["chess"],
+  },
+  {
+    name: "AI",
+    slugs: ["ai"],
   },
 ];
 
