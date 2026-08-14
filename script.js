@@ -70,7 +70,7 @@ const games = [
   { title: "8-Ball", slug: "8ball", blurb: "A classic billiards game where you aim, shoot, and sink all your assigned balls before finishing with the 8‑ball.", ready: true },
 
   { title: "AI", slug: "ai", blurb: "", ready: true },
-  { title: "test game 1", slug: "smash", blurb: "", ready: false },\
+  { title: "test game 1", slug: "smash", blurb: "", ready: false },
 ];
 
 // ---------------------------------------------------------
